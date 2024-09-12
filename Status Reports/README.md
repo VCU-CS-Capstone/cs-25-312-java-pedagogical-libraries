@@ -11,10 +11,10 @@ Status Report Fall Week XX.md is a template for to copy-paste into new Status re
 
 | Document | Tasks | Accomplishments | Issues |
 |---|---|---|---|
-| Week 1 Status Report | We've accomplished a lot | We'll accomplish even more | No problems to report! |
-| Week 2 Status Report | | | |
-| Week 3 Status Report | | | |
-| Week 4 Status Report | | | |
+| Week 1 Status Report | We were tasked to put our favorite projects in EduSourced. | I was assigned the team I wanted! | No problems to report! |
+| Week 2 Status Report | We met up for the first time to get to know each other and our skills. | We started the team contract. | There were no problems to report. |
+| Week 3 Status Report | Finish the contract and contact our advisor/sponsor. | We finished the contract and established concrete dates and times to meet. | There were no problems.|
+| Week 4 Status Report | Meet with our advisor and complete Deliverable 1.| Finished all of our assignments.| There are no problems to report. |
 | Week 5 Status Report | | | |
 | Week 6 Status Report | | | |
 | Week 7 Status Report | | | |
