@@ -1,6 +1,8 @@
 # *Java Pedagogical Libraries for Code Analysis*
 ## *VCU College of Engineering*
 ## Short Project Description
+Adaptation of PEDAL (PEDAgogical Library) from Python to Java for syntactic analysis of student-submitted code.
+
 Giving large amounts of timely and impactful feedback is difficult because instructor time in classrooms is becoming more limited as class sizes in Computer Science continue to grow larger. So to address the scale of current classes and give students timely feedback, one way to approach it is to design impactful feedback based on observed student performance and automate its delivery so feedback can be given at scale at the moment when the student needs it as opposed to before or after.
 
 ## Project Structure
