@@ -1,6 +1,25 @@
 # Meeting Summaries
 Here you will find notes recapping the key points of each synchronous meeting our group partakes in. They are listed in chronological order with the most recent entry at the top.
 
+# 2024-09-16 - Clarifications
+**Attendees**: Derek Chiou, Luca Doutt,  Luke Gusukuma, Ghulkam Mujktaba Qasimi, Kennedy Westry
+
+**Scribed by**: Derek Chiou
+
+- Verify that we can use external Java libraries
+    - Make sure to document it and how it integrates
+- It has to be runnable in Gradescope (runs a Docker container)
+- Highlight [Gradescope tutorial](https://docs.google.com/document/d/1emrYDSGkIYHiohU5BM2_WDNxGv_FpYfAQB-HTk6rXWY/edit)
+- Clarify specific goals
+    - Detect structures such as nested for loops, recursion, "a constant named THIS", etc. via AST
+    - Focus on the [CAIT](https://pedal-edu.github.io/pedal/teachers/tools/cait.html) part
+- Horizontal stretching - scanning over multiple possible matches within one indentation level (focus on this)
+- Vertical stretching - looks into deeper levels (don't worry too much about implementing this)
+- Review tasks:
+    - Read and understand the proposal template
+    - Have a written document of the requirements as we understand them
+- Make sure we record meetings **to the cloud**
+
 # 2024-09-10 - Getting Started
 **Attendees**: Derek Chiou, Luca Doutt, Ghulam Mujktaba Qasimi, Kennedy Westry
 
