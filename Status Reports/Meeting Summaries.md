@@ -1,8 +1,29 @@
 # Meeting Summaries
 Here you will find notes recapping the key points of each synchronous meeting our group partakes in. They are listed in chronological order with the most recent entry at the top.
 
+# 2024-09-23 - Requirements
+**Attendees** Derek Chiou, Luca Doutt, Luke Gusukuma, Ghulkam Mujktaba Qasimi, Kennedy Westry
+
+**Scribed by**: Derek Chiou
+
+- Set recurring Zoom meeting
+- Go over understanding of project requirements
+- Priority: CAIT > TIFA > the rest of PedaL
+- Long term ideal: one backend, Java and Python both interface with it separately for feature parity
+- Short term goal: Have CAIT for Java ready for use in the classroom
+- Impact both in the classroom and in academic research contexts
+- Previous group had suboptimal software design - keep in mind the Java framework we're dealing with
+- Map out a UML diagram for the proposal
+- **Next steps**:
+    - Start work on project proposal
+        - first draft by Monday, 2024-09-30
+            - Sections A and B (excluding B.4)
+        - final draft by Monday, 2024-10-07 (submission due: 2024-10-11)
+            - Section C
+    - No deadline, but get a UML software design as soon as possible
+
 # 2024-09-16 - Clarifications
-**Attendees**: Derek Chiou, Luca Doutt,  Luke Gusukuma, Ghulkam Mujktaba Qasimi, Kennedy Westry
+**Attendees**: Derek Chiou, Luca Doutt, Luke Gusukuma, Ghulkam Mujktaba Qasimi, Kennedy Westry
 
 **Scribed by**: Derek Chiou
 
