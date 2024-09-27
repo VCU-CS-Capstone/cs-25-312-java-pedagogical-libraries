@@ -1,8 +1,21 @@
 # Meeting Summaries
 Here you will find notes recapping the key points of each synchronous meeting our group partakes in. They are listed in chronological order with the most recent entry at the top.
 
+# 2024-09-26 - Proposal and Planning
+**Attendees**: Derek, Luca, Qasimi
+
+**Scribed by**: Derek Chiou
+
+- Put down template for Project Proposal
+- Start reading the literature for student code feedback
+- Lay out short-term plans:
+    - Think about preliminary design for JPedal
+    - Meet on Sunday
+    - All read the Pedal paper, each read one additional paper for 5 sources total
+    - Look for **unmet engineering need** (problem space) and technical implementation (syntactic analysis)
+
 # 2024-09-23 - Requirements
-**Attendees** Derek Chiou, Luca Doutt, Luke Gusukuma, Ghulkam Mujktaba Qasimi, Kennedy Westry
+**Attendees**: Derek Chiou, Luca Doutt, Luke Gusukuma, Ghulkam Mujktaba Qasimi, Kennedy Westry
 
 **Scribed by**: Derek Chiou
 
