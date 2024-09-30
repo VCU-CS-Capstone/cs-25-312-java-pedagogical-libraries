@@ -1,6 +1,19 @@
 # Meeting Summaries
 Here you will find notes recapping the key points of each synchronous meeting our group partakes in. They are listed in chronological order with the most recent entry at the top.
 
+# 2024-09-30 - First Draft Review
+**Attendees**: Derek, Luca, Luke, Qasimi, Kennedy
+
+**Scribed by**: Derek
+
+- Two paths: Implement only **CAIT** module, or lay down groundwork for an entire Pedal system
+    - The latter seems like the direction we're headed
+- If porting all of Pedal, **make a cost-importance table** - completing everything may not be realistic
+    - Get this **before Thursday** if possible
+    - Put CAIT at the top, then focus on the larger infrastructure
+- Appendix 1: Timeline earlier is better but not strictly necessary
+- "This paper cites" only goes back in time - "Cited by these papers" goes forward; much more attention has been given to autograding post-2020
+
 # 2024-09-29 - Draft Writing
 **Attendees**: Derek, Luca, Qasimi
 
