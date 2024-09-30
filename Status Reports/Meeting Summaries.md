@@ -1,10 +1,23 @@
 # Meeting Summaries
 Here you will find notes recapping the key points of each synchronous meeting our group partakes in. They are listed in chronological order with the most recent entry at the top.
 
+# 2024-09-29 - Draft Writing
+**Attendees**: Derek, Luca, Qasimi
+
+**Scribed by**: Derek
+
+- Continue reading papers
+- Make progress writing proposal body text
+- Lay out goals by tomorrow's advisor meeting
+    - Finish as much of sections A and B as possible
+- Talk about background experience - what parts of CMSC 304 will be necessary?
+    - Concept of an AST
+    - Java's static typing
+
 # 2024-09-26 - Proposal and Planning
 **Attendees**: Derek, Luca, Qasimi
 
-**Scribed by**: Derek Chiou
+**Scribed by**: Derek
 
 - Put down template for Project Proposal
 - Start reading the literature for student code feedback
