@@ -1,6 +1,23 @@
 # Meeting Summaries
 Here you will find notes recapping the key points of each synchronous meeting our group partakes in. They are listed in chronological order with the most recent entry at the top.
 
+# 2024-10-03 - More Proposal Writing
+**Attendees**: Derek, Luca, Qasimi, Kennedy
+
+**Scribed by**: Derek
+
+- Move weekly meetings:
+    - (unchanged) Monday 1-2 pm with advisor
+    - Tuesday morning -> 5:30 pm before class in person
+    - (unchanged) Thursday evening
+    - (this week) Sunday evening
+- Discuss cost-importance analysis table, create template in Google Sheets
+- Immediate goals:
+    - Derek: Section C, cost-importance analysis
+    - Luca: Section A
+    - Qasimi: Section B
+    - Kennedy: Section A
+
 # 2024-09-30 - First Draft Review
 **Attendees**: Derek, Luca, Luke, Qasimi, Kennedy
 
