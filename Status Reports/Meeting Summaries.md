@@ -1,6 +1,19 @@
 # Meeting Summaries
 Here you will find notes recapping the key points of each synchronous meeting our group partakes in. They are listed in chronological order with the most recent entry at the top.
 
+# 2024-10-10 - Final Proposal Preparations
+**Attendees**: Derek, Luca, Qasimi
+
+**Scribed by**: Derek
+
+- Discuss final two days of work on final proposal
+    - Progress is behind, dedicate additional time to pushing forward
+    - Run through papers again
+    - Synthesize sections together
+    - Use Google Docs built-in citation system
+    - Derek will submit
+- Qasimi will record advisor feedback / transcript going forward
+
 # 2024-10-03 - More Proposal Writing
 **Attendees**: Derek, Luca, Qasimi, Kennedy
 
