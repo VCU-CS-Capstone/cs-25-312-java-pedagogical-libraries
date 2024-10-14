@@ -1,6 +1,17 @@
 # Meeting Summaries
 Here you will find notes recapping the key points of each synchronous meeting our group partakes in. They are listed in chronological order with the most recent entry at the top.
 
+# 2024-10-14 - Proposal Discussion
+**Attendees**: Derek, Luca, Luke, Qasimi, Kennedy
+
+**Scribed by**: Derek
+
+- Students need to be able to use JPedal locally
+- Discuss cost-importance analysis
+    - Double-check time estimates with everyone, make sure they match up
+    - Consider how much time will be dedicated per week
+    - e.g. 8 hours may be a bit low for UML design
+
 # 2024-10-10 - Final Proposal Preparations
 **Attendees**: Derek, Luca, Qasimi
 
