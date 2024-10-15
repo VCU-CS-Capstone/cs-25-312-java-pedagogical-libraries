@@ -1,6 +1,15 @@
 # Meeting Summaries
 Here you will find notes recapping the key points of each synchronous meeting our group partakes in. They are listed in chronological order with the most recent entry at the top.
 
+# 2024-10-15 - Check-in, start poster
+*Attendees**: Derek, Luca, Kennedy
+
+**Scribed by**: Derek
+
+- Attend seminar, discuss fall design poster due 2024-11-15
+    - Graded on formatting and aesthetics over content
+- Discuss software engineering workflows (Waterfall, Agile, Rapid Application Development)
+
 # 2024-10-14 - Proposal Discussion
 **Attendees**: Derek, Luca, Luke, Qasimi, Kennedy
 
