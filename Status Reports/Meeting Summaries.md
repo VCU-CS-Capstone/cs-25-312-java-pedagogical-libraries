@@ -1,8 +1,20 @@
 # Meeting Summaries
 Here you will find notes recapping the key points of each synchronous meeting our group partakes in. They are listed in chronological order with the most recent entry at the top.
 
+# 2024-10-17 - Logistics
+**Attendees**: Derek, Luca, Kennedy
+
+**Scribed by**: Derek
+
+- Discuss time costs as 3
+- Move completion dates from Mondays to Tuesdays, providing an additional day to discuss with advisor
+- Move hours from academic deliverables to Source and CAIT
+- Review next steps:
+    - Ensure everyone's Java development environment works by Monday
+    - Draft UML by Tuesday
+
 # 2024-10-15 - Check-in, start poster
-*Attendees**: Derek, Luca, Kennedy
+**Attendees**: Derek, Luca, Kennedy
 
 **Scribed by**: Derek
 
