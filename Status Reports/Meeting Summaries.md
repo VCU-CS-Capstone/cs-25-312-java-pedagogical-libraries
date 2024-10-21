@@ -1,6 +1,15 @@
 # Meeting Summaries
 Here you will find notes recapping the key points of each synchronous meeting our group partakes in. They are listed in chronological order with the most recent entry at the top.
 
+# 2024-10-21 - Workspace configuration
+**Attendees**: Derek, Luke, Qasimi, Kennedy
+
+**Scribed by**: Derek
+
+- Discuss revised proposal timeline
+- **Meeting time move**: Monday 1 pm -> Tuesday 5:15 pm
+- Add sample student code to the repository
+
 # 2024-10-17 - Logistics
 **Attendees**: Derek, Luca, Kennedy
 
