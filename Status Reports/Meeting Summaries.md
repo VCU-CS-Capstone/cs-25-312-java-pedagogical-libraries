@@ -1,6 +1,15 @@
 # Meeting Summaries
 Here you will find notes recapping the key points of each synchronous meeting our group partakes in. They are listed in chronological order with the most recent entry at the top.
 
+# 2024-10-28 - UML design
+**Attendees**: Derek, Luca, Qasimi
+
+**Scribed by**: Derek
+
+- Discuss UML tooling
+- Open a diagrams.net drawing in the shared drive folder
+- Examine Pedal source code more closely
+
 # 2024-10-21 - Workspace configuration
 **Attendees**: Derek, Luke, Qasimi, Kennedy
 
