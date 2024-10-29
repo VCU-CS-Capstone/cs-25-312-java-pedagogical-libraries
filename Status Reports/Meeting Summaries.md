@@ -1,6 +1,24 @@
 # Meeting Summaries
 Here you will find notes recapping the key points of each synchronous meeting our group partakes in. They are listed in chronological order with the most recent entry at the top.
 
+# 2024-10-29 - Project structure discussion
+**Attendees**: Derek, Luca, Luke, Qasimi, Kennedy
+
+**Scribed by**: Derek
+
+- Discuss planning process
+    - Make up a **textual description** (as detailed as possible) for the **functionality** you need to implement (whole-project)
+    - Extract **noun phrases** (classes) and **verb phrases** (methods)
+    - Extract iterations (for) and decisions (if)
+    - Draw connections with inheritance
+    - [Battleship example](https://docs.google.com/document/d/1RzUwoTF1XLtFxA8B8z2nrc77ZGpVvWeGwGhm7uZ71G8/edit?usp=drive_link) given
+- Reminder about previous year's efforts (pseudocode is available)
+- Review [Asana](https://asana.com) for task scheduling
+- Review packaging systems (Maven/Gradle/raw Java)
+- Tasks by next meeting:
+    - Use planning process above, produce complete UML
+    - Java tooling setup as planned (collaborative environment with packaging)
+
 # 2024-10-28 - UML design
 **Attendees**: Derek, Luca, Qasimi
 
