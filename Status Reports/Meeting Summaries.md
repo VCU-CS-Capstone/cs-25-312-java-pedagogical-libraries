@@ -1,6 +1,19 @@
 # Meeting Summaries
 Here you will find notes recapping the key points of each synchronous meeting our group partakes in. They are listed in chronological order with the most recent entry at the top.
 
+# 2024-10-31 - Planning procedures
+**Attendees**: Derek, Luca, Qasimi, Kennedy
+
+**Scribed by**: Derek
+
+- Set up Asana
+- Plot out short-term goals
+    - Everyone: get familiar with [Git](https://git-scm.com/book/en/v2)
+        - Chapters 1 and 2 are key; chapters 3 and 6 are nice to have
+    - Everyone: annotate papers and source code, settle on functionality set in preparation for UML writing
+    - Derek: Research Maven and Gradle build systems, plan build configuration
+- Start thinking about what will go on the Fall Poster
+
 # 2024-10-29 - Project structure discussion
 **Attendees**: Derek, Luca, Luke, Qasimi, Kennedy
 
