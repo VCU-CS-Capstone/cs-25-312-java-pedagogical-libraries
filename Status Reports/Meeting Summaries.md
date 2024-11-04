@@ -1,6 +1,22 @@
 # Meeting Summaries
 Here you will find notes recapping the key points of each synchronous meeting our group partakes in. They are listed in chronological order with the most recent entry at the top.
 
+# 2024-11-04 - UML progress
+**Attendees**: Derek, Luca, Qasimi, Kennedy
+
+**Scribed by**: Derek
+
+- Reconvene on Java build systems
+- Confirm that everyone familiarized with Git
+- Plan for next meeting
+    - Thursday, 6 pm, Library (booked room)
+    - Discuss poster and UML
+- Short-term tasks
+    - Derek: Gradle build and UML modules
+    - Luca: Git and design patterns
+    - Qasimi: UML relationships
+    - Kennedy: UML modules
+
 # 2024-10-31 - Planning procedures
 **Attendees**: Derek, Luca, Qasimi, Kennedy
 
