@@ -1,6 +1,16 @@
 # Meeting Summaries
 Here you will find notes recapping the key points of each synchronous meeting our group partakes in. They are listed in chronological order with the most recent entry at the top.
 
+# 2024-11-07 - Tooling progress
+**Attendees**: Derek, Luca, Kennedy
+
+**Scribed by**: Derek
+
+- Confirm Gradle working on different machines
+- Discuss poster workflow
+- Review Git procedures
+- Discuss syntax tree notes
+
 # 2024-11-04 - UML progress
 **Attendees**: Derek, Luca, Qasimi, Kennedy
 
