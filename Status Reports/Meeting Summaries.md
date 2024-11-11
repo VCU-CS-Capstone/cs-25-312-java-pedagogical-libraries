@@ -1,6 +1,18 @@
 # Meeting Summaries
 Here you will find notes recapping the key points of each synchronous meeting our group partakes in. They are listed in chronological order with the most recent entry at the top.
 
+**2024-11-11 - Poster planning
+**Attendees**: Derek, Qasimi, Kennedy
+
+**Scribed by**: Derek
+
+- Plan for poster completion
+    - 2 hour meeting on Thursday
+- Discuss meeting points for tomorrow's advisor meeting
+    - UML feedback
+    - Poster
+- Delegate tasks and write into Asana
+
 # 2024-11-07 - Tooling progress
 **Attendees**: Derek, Luca, Kennedy
 
