@@ -1,7 +1,23 @@
 # Meeting Summaries
 Here you will find notes recapping the key points of each synchronous meeting our group partakes in. They are listed in chronological order with the most recent entry at the top.
 
-**2024-11-11 - Poster planning
+# 2024-11-12 - UML discussion
+**Attendees**: Derek, Luca, Luke, Qasimi, Kennedy
+
+**Scribed by**: Derek
+
+- **Hash out CAIT module UML**
+    - Separate into classes (the original PEDAL had 5 or 6)
+- Use previous project (don't worry - it's not plagiarism), readjust as desired
+- Describe the CAIT algorithm in words
+- **Feb 22 Lecture.mp4** - Explains the algorithm
+- Short-term task: look more deeply into the previous group's work
+- Section 4.2 of this [dissertation](https://vtechworks.lib.vt.edu/server/api/core/bitstreams/5e3b9983-bdcb-4c4b-8ecc-46db979f4c01/content) describes the matching algorithm in detail
+- **Make more regular contacts** - Send contact after each student meet?
+- Poster should **tell a story** (context-problem-solution)
+- Solution: Workflow we hope for
+
+# 2024-11-11 - Poster planning
 **Attendees**: Derek, Qasimi, Kennedy
 
 **Scribed by**: Derek
