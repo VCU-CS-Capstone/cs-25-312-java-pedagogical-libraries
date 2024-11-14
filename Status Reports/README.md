@@ -19,8 +19,7 @@ Status Report Fall Week XX.md is a template for to copy-paste into new Status re
 | Week 6 Status Report | Go over old material from the previous group, and go through articles. | We began our research of the project. | There were no problems.|
 | Week 7 Status Report | Start on the proposal. Each member of the group has a section of the proposal. | We did not finish the proposal. | There were no problems.|
 | Week 8 Status Report | Finish up the proposal. | We finished the proposal and turned it into our advisor. | There were no problems.|
-| Week 9 Status Report |Discuss time costs as 3 and move completion dates from Mondays to Tuesdays, providing an additional day to discuss with advisor
-Move hours from academic deliverables to Source and CAIT | We finished the time costs. | There were no problems. |
+| Week 9 Status Report |Discuss time costs as 3 and move completion dates from Mondays to Tuesdays, providing an additional day to discuss with advisor, Move hours from academic deliverables to Source and CAIT | We finished the time costs. | There were no problems. |
 | Week 10 Status Report |Add sample student code to the repository ad discuss revised proposal timeline| We finished the sample student code. | There were no problems.|
 | Week 11 Status Report |Discuss UML tooling, Open a diagrams.net drawing in the shared drive folder, Examine Pedal source code more closely| Completed the UML draft. | There were no problems. |
 | Week 12 Status Report | Meet with Luke to discuss future project expectations and work on UML diagram. | We signed up for Asana for project management purposes, assigned tasks to each group member, and worked on finishing the UML. | There were no problems. |
