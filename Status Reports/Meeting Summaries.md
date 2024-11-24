@@ -280,6 +280,7 @@ Here you will find notes recapping the key points of each synchronous meeting ou
     - Kennedy - Fill in status reports up to week 3
     - Luca - Update README.md in project root
     - Derek and Qasimi - Research existing files / project context
+
 # 2024-09-09 - First Advisor Meeting
 **Attendees**: Derek Chiou, Luca Doutt, Luke Gusukuma, Ghulam Mujktaba Qasimi
 
@@ -305,6 +306,7 @@ Here you will find notes recapping the key points of each synchronous meeting ou
     - Find out areas of potential improvement on the existing design
     - Bonus points: preliminary design ideas
     - Brush up on abstract syntax trees (ASTs) and symbol tables
+
 # 2024-09-03 - Contract Completion
 **Attendees**: Derek Chiou, Luca Doutt, Ghulam Mujktaba Qasimi, Kennedy Westry
 
