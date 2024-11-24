@@ -24,8 +24,8 @@ Status Report Fall Week XX.md is a template for to copy-paste into new Status re
 | Week 11 Status Report |Discuss UML tooling, Open a diagrams.net drawing in the shared drive folder, Examine Pedal source code more closely| Completed the UML draft. | There were no problems. |
 | Week 12 Status Report | Meet with Luke to discuss future project expectations and work on UML diagram. | We signed up for Asana for project management purposes, assigned tasks to each group member, and worked on finishing the UML. | There were no problems. |
 | Week 13 Status Report | Meet with Luke to show him our completed UML and ask for poster expectations. | Change UML to align with Luke's expectations and finish poster. | The only problem was our UML design wasn't going in the direction Luke wanted it.  |
-| Week 14 Status Report | | | |
-| Week 15 Status Report | | | |
+| Week 14 Status Report | Meet with Luke to clarify a complete description of the CAIT functionality and procedure | N/A | UML is substantially behind schedule |
+| Week 15 Status Report | (Thanksgiving Break) | N/A | N/A |
 | Week 16 Status Report | | | |
 
 ## Spring Semester
