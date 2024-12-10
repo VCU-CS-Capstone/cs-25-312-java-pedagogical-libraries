@@ -1,5 +1,15 @@
 # Meeting Summaries
 Here you will find notes recapping the key points of each synchronous meeting our group partakes in. They are listed in chronological order with the most recent entry at the top.
+# 2024-12-10 - Design Report overview
+**Attendees**: Derek, Luke, Qasimi, Kennedy
+
+**Scribed by**: Derek
+
+- Discuss specification for Preliminary Design Report
+- Prepare resources for dev meeting tomorrow
+    - Qasimi: Complete CAIT UML (even if not perfect)
+    - Derek: Review CAIT UML, review sections A-C
+    - Team: Have questions ready
 
 # 2024-11-19 - CAIT algorithm overview
 **Attendees**: Derek, Luke, Qasimi, Kennedy
