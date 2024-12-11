@@ -1,7 +1,26 @@
 # Meeting Summaries
 Here you will find notes recapping the key points of each synchronous meeting our group partakes in. They are listed in chronological order with the most recent entry at the top.
+
+# 2024-12-11 - UML Critique
+**Attendees**: Derek, Luca, Luke, Qasimi, Kennedy
+
+**Scribed by**: Derek
+
+- Discuss UML draft
+    - Good starting point, though a lot will change
+    - Consider which classes will need to have instances and which will act as libraries
+    - Add more instance variables or arguments to ensure the methods have the information they need
+- Discuss collaborative process
+    - Prioritize shell code
+    - Consult before making non-additive changes outside your designated module
+    - Continue to update UML
+- Discuss design report
+    - Social impact of the project (think of long-run categories of impact)
+    - Microsoft using Pedal in [bakery](https://python-bakery.github.io/)
+    - Template replaced with Luke's Line Items
+
 # 2024-12-10 - Design Report overview
-**Attendees**: Derek, Luke, Qasimi, Kennedy
+**Attendees**: Derek, Luca, Qasimi, Kennedy
 
 **Scribed by**: Derek
 
