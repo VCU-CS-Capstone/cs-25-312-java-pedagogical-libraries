@@ -12,7 +12,7 @@ sourceSets {
     main {
         java {
             srcDirs = ['src']
-            exclude '**/SampleCode/**'
+            exclude '**/SampleCode/Lab**'
         }
     }
 }
