@@ -12,11 +12,7 @@ public class WackyMath {
 
         System.out.println("Making a list (array), and getting confused");
         int[] santaCosts = new int[]{4, 7, 2, -1};
-        int twiceCost = 0;
-        for(int cost : santaCosts) {
-            twiceCost = cost + cost;
-        }
-        System.out.println("Doubled sum of " + Arrays.toString(santaCosts) + " is NOT " + twiceCost);
+        System.out.println("Doubled sum of " + Arrays.toString(santaCosts) + " is NOT " + doubleSum(santaCosts));
     }
 
     private static int factorial(int n) {
@@ -25,5 +21,13 @@ public class WackyMath {
             out *= i;
         }
         return out;
+    }
+
+    private static int doubleSum(int[] nums) {
+        int twiceCost = 0;
+        for(int item : nums) {
+            twiceCost = item + item;
+        }
+        return twiceCost;
     }
 }

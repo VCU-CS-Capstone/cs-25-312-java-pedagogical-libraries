@@ -12,12 +12,7 @@ public class CrazyMath {
 
         System.out.println("Making a list (array), and summing it twice");
         int[] santaCosts = new int[]{4, 7, 2, -1};
-        int twiceCost = 0;
-        for(int cost : santaCosts) {
-            twiceCost += cost;
-            twiceCost += cost;
-        }
-        System.out.println("Doubled sum of " + Arrays.toString(santaCosts) + " is " + twiceCost);
+        System.out.println("Doubled sum of " + Arrays.toString(santaCosts) + " is " + doubleSum(santaCosts));
     }
 
     private static int factorial(int n) {
@@ -26,5 +21,13 @@ public class CrazyMath {
             return 1;
         }
         return n * factorial(n-1);
+    }
+
+    private static int doubleSum(int[] nums) {
+        int twiceCost = 0;
+        for(int item : nums) {
+            twiceCost = twiceCost + item + item;
+        }
+        return twiceCost;
     }
 }
