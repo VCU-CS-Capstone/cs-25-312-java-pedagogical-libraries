@@ -1,6 +1,17 @@
 # Meeting Summaries
 Here you will find notes recapping the key points of each synchronous meeting our group partakes in. They are listed in chronological order with the most recent entry at the top.
 
+# 2025-01-22 - Semester Start
+**Attendees**: Derek, Luca, Kennedy
+
+**Scribed by**: Derek
+
+- Reintroduce the spring semester
+- Start on contract update
+    - Switch roles around? Kennedy switching off Project Manager
+    - New meeting times: (student) Wednesdays at 6, (advisor) Thursdays at 6:15
+    - Start rewrite of Step 2: Team Culture
+
 # 2024-12-11 - UML Critique
 **Attendees**: Derek, Luca, Luke, Qasimi, Kennedy
 
