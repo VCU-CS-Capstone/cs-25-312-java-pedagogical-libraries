@@ -1,6 +1,15 @@
 # Meeting Summaries
 Here you will find notes recapping the key points of each synchronous meeting our group partakes in. They are listed in chronological order with the most recent entry at the top.
 
+# 2025-01-23 - Contract Discussion
+**Attendees**: Derek, Luca, Qasimi, Kennedy
+
+**Scribed by**: Derek
+
+- Discuss new semester
+- Confirm new contract entries
+- Wait for advisor (did not attend)
+
 # 2025-01-22 - Semester Start
 **Attendees**: Derek, Luca, Kennedy
 
