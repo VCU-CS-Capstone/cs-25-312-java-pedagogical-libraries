@@ -33,7 +33,7 @@ Status Report Fall Week XX.md is a template for to copy-paste into new Status re
 | Document | Tasks | Accomplishments| Issues |
 |---|---|---|---|
 | Week 1 Status Report | Update team contract| N/A | Still waiting on work schedules |
-| Week 2 Status Report | | | |
+| Week 2 Status Report | Get started on building codebase | Update team contract | Unclear on collaborative workflow |
 | Week 3 Status Report | | | |
 | Week 4 Status Report | | | |
 | Week 5 Status Report | | | |
