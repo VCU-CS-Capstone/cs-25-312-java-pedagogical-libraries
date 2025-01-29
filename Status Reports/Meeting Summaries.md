@@ -1,6 +1,17 @@
 # Meeting Summaries
 Here you will find notes recapping the key points of each synchronous meeting our group partakes in. They are listed in chronological order with the most recent entry at the top.
 
+# 2025-01-29 - Contract Completion, first steps
+**Attendees**: Derek, Qasimi, Kennedy
+
+**Scribed by**: Derek
+
+- Final pass and submission of updated team contract
+- Review what to talk about tomorrow
+    - Collaborative workflows
+    - Expectations
+    - Pacing / starting point
+
 # 2025-01-23 - Contract Discussion
 **Attendees**: Derek, Luca, Qasimi, Kennedy
 
