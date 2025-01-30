@@ -1,6 +1,25 @@
 # Meeting Summaries
 Here you will find notes recapping the key points of each synchronous meeting our group partakes in. They are listed in chronological order with the most recent entry at the top.
 
+# 2025-01-30 - Reconvene, start planning
+**Attendees**: Derek, Luca, Luke, Qasimi, Kennedy
+
+**Scribed by**: Derek
+
+- Tasks
+    - [ ] Tooling for development
+    - [ ] Divide needed work (smaller and smaller!)
+- Milestones
+    - [ ] New timeline written
+    - [ ] Search for a particular node, e.g. "`for` loop with variable named `j`" or "enhanced `for` loop" and get its elements
+        - [ ] Store its information into a symbol table
+        - [ ] Test AST, what will an intended AST look like?
+- Dividing work by methods?
+    - 1x Symbol table, 2x matching, 1x testing?
+- Considerations
+    - Symbol table might require more complex data structure
+    - Create templates (from UML), so the interface is functional
+
 # 2025-01-29 - Contract Completion, first steps
 **Attendees**: Derek, Qasimi, Kennedy
 
