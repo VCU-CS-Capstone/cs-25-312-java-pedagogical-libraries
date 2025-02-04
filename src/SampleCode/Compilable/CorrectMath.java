@@ -2,7 +2,7 @@ package SampleCode.Compilable;
 
 import java.util.Arrays;
 
-public class CrazyMath {
+public class CorrectMath {
     public static void main(String[] args) {
         System.out.println("Evaluating a factorial recursively");
         int n = 5;
