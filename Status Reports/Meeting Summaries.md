@@ -1,6 +1,45 @@
 # Meeting Summaries
 Here you will find notes recapping the key points of each synchronous meeting our group partakes in. They are listed in chronological order with the most recent entry at the top.
 
+# 2025-02-06
+**Attendees**: Luca, Luke, Qasimi, Kennedy
+
+**Scribed by**: Luca
+
+## Testing
+- JUnit tests
+- Gradescope: we have access to canvas classroom as teachers for testing there. However, this is not on our tasklist as Gradescope integration is not part of our project’s scope.
+## Revised timeline
+- Luke has asked us to give a revised schedule of tasks (last semester’s is outdated).
+- Making another timeline may be helpful for keeping pace.
+- Can be high level, large milestones should have an accurate timeline.
+- Will help structure meetings so Luke will know what to expect from us at each meeting.
+## Code
+- Reference our pseudocode as well as the last group’s pseudocode.
+- We should meet and work on documenting the code so working asynchronously is easier.
+## Goals for next meeting
+- Update our timeline
+- Have working class templates (with methods even if their bodies are empty)
+- Don’t leave questions for next meeting! Send Luke an e-mail or message especially if the question it stalls progress
+
+# 2025-02-05
+**Attendees**: Luca, Qasimi, Kennedy
+
+**Scribed by**: Luca
+
+Derek is sick today, was not present in call.
+
+There are currently four classes to work on:
+- IdentifierType
+- Match
+- Symbol
+- SymbolTable
+
+We will be working on IdentifierType and SymbolTable first as Derek has completed the basic implementation of Symbol. Tomorrow we will communicate with Derek to figure out how to implement parts of the UML into the code.
+
+## Questions for tomorrow's meeting:
+We are going to be implementing CAIT first. What data is CAIT going to be passing to TIFA?
+
 # 2025-01-30 - Reconvene, start planning
 **Attendees**: Derek, Luca, Luke, Qasimi, Kennedy
 
