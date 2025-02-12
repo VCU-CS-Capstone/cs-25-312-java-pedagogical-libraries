@@ -43,6 +43,9 @@ public class SymbolTable {
      * @return the data type of the corresponding symbol
      */
     public Type getSymbolDataType(String key) {
+       /** Symbol __var__=symbolTable.get(key);
+         return __var__!=null ? __var__.getDataType() : null; 
+        suggestion just in case the symbol isn't in the table */
         return symbolTable.get(key).getDataType();
     }
 
@@ -52,6 +55,9 @@ public class SymbolTable {
      * @return the name of the corresponding symbol
      */
     public SimpleName getSymbolName(String key) {
+         /** Symbol __var__=symbolTable.get(key);
+         return __var__!=null ? __var__.getName() : null; 
+        suggestion just in case the symbol isn't in the table */
         return symbolTable.get(key).getName();
     }
 
@@ -61,6 +67,8 @@ public class SymbolTable {
      * @return the expression of the corresponding symbol
      */
     public Expression getSymbolValue(String key) {
+        /** Symbol __var__=symbolTable.get(key);
+         return __var__!=null ? __var__.Value() : null; */
         return symbolTable.get(key).getValue();
     }
 }
