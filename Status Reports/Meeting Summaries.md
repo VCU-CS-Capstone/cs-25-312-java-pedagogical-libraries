@@ -1,6 +1,17 @@
 # Meeting Summaries
 Here you will find notes recapping the key points of each synchronous meeting our group partakes in. They are listed in chronological order with the most recent entry at the top.
 
+# 2025-02-13
+**Attendees**: Derek, Luca, Luke, Qasimi, Kennedy
+
+**Scribed by**: Derek
+
+## Read from String
+- Sample code from previous semester should be available: https://github.com/VCU-CS-Capstone/CS-24-337-Java-Pedagogical-Libraries-for-Code-Analysis/tree/master/src/AST_Testing/src
+- Check previous JavaParser documentation
+- Check `ParserTest` (uses JavaParser, written by Luke)
+- Javadoc as you go
+
 # 2025-02-12
 **Attendees**: Derek, Luca, Qasimi, Kennedy
 
