@@ -1,6 +1,18 @@
 # Meeting Summaries
 Here you will find notes recapping the key points of each synchronous meeting our group partakes in. They are listed in chronological order with the most recent entry at the top.
 
+# 2025-02-12
+**Attendees**: Derek, Luca, Qasimi, Kennedy
+
+**Scribed by**: Derek
+
+## Updated timeline
+- Symbol table by spring break, horizontal stretching after spring break
+- First immediate deliverable: **Get AST data, given a source file or text**
+
+## Collaborative workflow
+- Likely divide by method, will become clearer as we write more
+
 # 2025-02-06
 **Attendees**: Luca, Luke, Qasimi, Kennedy
 
