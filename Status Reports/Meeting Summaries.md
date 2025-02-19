@@ -1,6 +1,19 @@
 # Meeting Summaries
 Here you will find notes recapping the key points of each synchronous meeting our group partakes in. They are listed in chronological order with the most recent entry at the top.
 
+# 2025-02-19
+**Attendees**: Derek, Luca, Qasimi, Kennedy
+
+**Scribed by**: Derek
+
+## Get cracking
+- Progress has been slow this week due to external pressure
+- **Goal**: Get something presentable by tomorrow's meeting
+## Plan
+- **Derek** and **Kennedy**: Finish String -> AST tonight
+- **Luca** and **Qasimi**: Finish simple match (Node, Node -> bool) tomorrow
+- **Check in** intermittently whenever possible
+
 # 2025-02-13
 **Attendees**: Derek, Luca, Luke, Qasimi, Kennedy
 
