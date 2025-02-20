@@ -17,6 +17,7 @@ import java.util.Scanner;
 public class CAIT {
     /**
      * Wrapper for parseSource that passes in a file's contents.
+     *
      * @param path path to the file to be read
      * @return the resulting JavaParser Node
      */
@@ -36,6 +37,7 @@ public class CAIT {
     }
     /**
      * Converts a Java file, in String form, into a JavaParser node.
+     *
      * @param sourceCode code to be parsed
      * @return the resulting root Node
      */
@@ -52,7 +54,22 @@ public class CAIT {
         // CompilationUnit is a subclass of Node so we don't actually need to reach into its root -dc
         return parsedTree;
     }
+
     /**
+     * Recursively compares two nodes, checking if they are equal.
+     * TODO: delegate to TreeMatcher?
+     *
+     * @param node1 root of the first tree to be checked
+     * @param node2 root of the second tree to be checked
+     * @return whether the two trees are structurally equivalent
+     */
+    public static boolean nodesAreEqual(Node node1, Node node2) {
+        // TODO: complete this method
+        return false;
+    }
+
+    /**
+     * Wrapper for findMatches that returns the first match found.
      *
      * @param pattern instructor-provided AST pattern to check for
      * @param studentCode entire student source code in one string
@@ -74,8 +91,7 @@ public class CAIT {
      * @return a List of all Matches found (may be empty)
      */
     public static List<Match> findMatches(String pattern, String studentCode) {
-        // TODO: Use SubtreeMatching to get matches
-
+        // TODO: Use TreeMatcher to get matches
         return new ArrayList<Match>();
     }
 }
