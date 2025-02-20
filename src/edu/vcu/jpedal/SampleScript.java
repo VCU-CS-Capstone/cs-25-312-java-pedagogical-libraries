@@ -26,5 +26,7 @@ public class SampleScript {
         System.out.println("correct and renamedCorrect are: " + (CAIT.nodesAreEqual(correctNode, renamedCorrectNode) ? "EQUAL" : "NOT EQUAL"));
         // This should report NOT EQUAL once nodesAreEqual is complete -dc
         System.out.println("correct and wacky are: " + (CAIT.nodesAreEqual(correctNode, wackyNode) ? "EQUAL" : "NOT EQUAL"));
+        // This should report EQUAL once nodesAreEqual is complete - ld
+        System.out.println("correct and correct are: " + (CAIT.nodesAreEqual(correctNode, correctNode) ? "EQUAL" : "NOT EQUAL"));
     }
 }
