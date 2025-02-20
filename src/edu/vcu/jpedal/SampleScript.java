@@ -14,8 +14,17 @@ public class SampleScript {
         assert parsed != null;
         System.out.println(parsed);
 
-        Node fileParsed = CAIT.parseFile("src/SampleCode/Compilable/CorrectMath.java");
-        assert fileParsed != null;
-        fileParsed.walk(node -> System.out.println(node.getClass().getSimpleName() + ": " + node));
+        final String PATH_TO_SAMPLES = "src/SampleCode/Compilable/";
+
+        Node correctNode = CAIT.parseFile(PATH_TO_SAMPLES + "CorrectMath.java");
+        assert correctNode != null;
+        Node renamedCorrectNode = CAIT.parseFile(PATH_TO_SAMPLES + "RenamedCorrectMath.java");
+        assert renamedCorrectNode != null;
+        Node wackyNode = CAIT.parseFile(PATH_TO_SAMPLES + "WackyMath.java");
+        assert wackyNode != null;
+        // This should report EQUAL once nodesAreEqual is complete -dc
+        System.out.println("correct and renamedCorrect are: " + (CAIT.nodesAreEqual(correctNode, renamedCorrectNode) ? "EQUAL" : "NOT EQUAL"));
+        // This should report NOT EQUAL once nodesAreEqual is complete -dc
+        System.out.println("correct and wacky are: " + (CAIT.nodesAreEqual(correctNode, wackyNode) ? "EQUAL" : "NOT EQUAL"));
     }
 }
