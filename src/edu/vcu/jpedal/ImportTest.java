@@ -6,7 +6,6 @@ import westrykj.KennedySaysHello;
 import douttl.LucaSaysHello;
 // import gqasimi.QasimiSaysHello;
 
-import com.github.javaparser.ast.Node;
 
 
 public class ImportTest {
@@ -17,9 +16,5 @@ public class ImportTest {
         // QasimiSaysHello.main(new String[]{});
         KennedySaysHello.main(new String[]{});
 
-        /* Test CAIT methods */
-        Node parsed = CAIT.parseSource(
-                "public class SuperAwesome { public static void main(String[] args) { int x = 3; } }");
-        System.out.println(parsed.getChildNodes());
     }
 }
