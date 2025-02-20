@@ -1,6 +1,19 @@
 # Meeting Summaries
 Here you will find notes recapping the key points of each synchronous meeting our group partakes in. They are listed in chronological order with the most recent entry at the top.
 
+# 2025-02-20
+**Attendees**: Derek, Luca, Luke, Qasimi, Kennedy
+
+**Scribed by**: Derek
+
+> [!CHECK] Completed milestone
+> Text parsing and simple matching done!
+
+## More short-term tasks
+- Make a unit testing framework and start testing (GitHub actions?)
+- Fill out class templates
+- Symbol table merging by next week?
+
 # 2025-02-19
 **Attendees**: Derek, Luca, Qasimi, Kennedy
 
