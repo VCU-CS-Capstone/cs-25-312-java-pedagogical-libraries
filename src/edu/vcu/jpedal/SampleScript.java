@@ -16,6 +16,6 @@ public class SampleScript {
 
         Node fileParsed = CAIT.parseFile("src/SampleCode/Compilable/CorrectMath.java");
         assert fileParsed != null;
-        System.out.println(fileParsed);
+        fileParsed.walk(node -> System.out.println(node.getClass().getSimpleName() + ": " + node));
     }
 }
