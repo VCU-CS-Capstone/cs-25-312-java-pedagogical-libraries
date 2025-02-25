@@ -4,6 +4,9 @@ import com.github.javaparser.ast.CompilationUnit;
 import com.github.javaparser.ast.Node;
 import org.junit.jupiter.api.Test;
 
+import java.io.IOException;
+import java.nio.file.Path;
+
 import static org.junit.jupiter.api.Assertions.*;
 class CAITTest {
 
@@ -35,5 +38,51 @@ class CAITTest {
         assertNotNull(node2, "Valid source code should not return null");
 
         assertFalse(CAIT.nodesAreEqual(node1, node2), "Nodes with differing structures should not be equal");
+    }
+
+    @Test
+    void testIdenticalFiles() {
+        Path correctFile;
+        try {
+            correctFile = FileResourceHelper.getResource("CorrectMath.java");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        Node node1 = CAIT.parseFile(correctFile);
+        Node node2 = CAIT.parseFile(correctFile);
+
+        assertTrue(CAIT.nodesAreEqual(node1, node2), "Nodes formed from the same file should be equal");
+    }
+
+    @Test
+    void testDifferentFiles() {
+        Path correctFile;
+        Path wrongFile;
+        try {
+            correctFile = FileResourceHelper.getResource("CorrectMath.java");
+            wrongFile = FileResourceHelper.getResource("WrongMath.java");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        Node node1 = CAIT.parseFile(correctFile);
+        Node node2 = CAIT.parseFile(wrongFile);
+
+        assertFalse(CAIT.nodesAreEqual(node1, node2), "Nodes formed from structurally different files shouldn't be equal");
+    }
+
+    @Test
+    void testRenamedFiles() {
+        Path correctFile;
+        Path renamedCorrectFile;
+        try {
+            correctFile = FileResourceHelper.getResource("CorrectMath.java");
+            renamedCorrectFile = FileResourceHelper.getResource("RenamedCorrectMath.java");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        Node node1 = CAIT.parseFile(correctFile);
+        Node node2 = CAIT.parseFile(renamedCorrectFile);
+
+        assertTrue(CAIT.nodesAreEqual(node1, node2), "Nodes formed from structurally identical files should be equal");
     }
 }
