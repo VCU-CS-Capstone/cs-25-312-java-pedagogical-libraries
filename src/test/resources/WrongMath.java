@@ -1,5 +1,3 @@
-package SampleCode.Compilable;
-
 public class WrongMath {
     /// Recursively computing a factorial
     private static int factorial(int n) {

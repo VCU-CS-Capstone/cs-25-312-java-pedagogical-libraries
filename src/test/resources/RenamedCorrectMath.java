@@ -1,5 +1,3 @@
-package SampleCode.Compilable;
-
 public class RenamedCorrectMath {
     /// This file should have the same exact structure as CorrectMath.java
     public static int factorial(int callMeIshmael) {

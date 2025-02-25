@@ -1,5 +1,3 @@
-package SampleCode.Compilable;
-
 public class WackyMath {
     /// Computing a factorial without recursion
     private static int factorial(int n) {
