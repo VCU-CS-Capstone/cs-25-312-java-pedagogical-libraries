@@ -6,6 +6,10 @@ import com.github.javaparser.ast.Node;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -17,24 +21,31 @@ import java.util.Scanner;
 public class CAIT {
     /**
      * Wrapper for parseSource that passes in a file's contents.
+     * Converts the input String to a Path first.
      *
-     * @param path path to the file to be read
+     * @param path String path to the file to be read
      * @return the resulting JavaParser Node
      */
     public static Node parseFile(String path) {
-        File infile = new File(path);
-        StringBuilder sourceCode = new StringBuilder((int)infile.length());
-        Scanner scanner;
+        return parseFile(Paths.get(path));
+    }
+
+    /**
+     * Wrapper for parseSource that passes in a file's contents.
+     *
+     * @param path Path to the file to be read
+     * @return the resulting JavaParser Node
+     */
+    public static Node parseFile(Path path) {
+        String sourceCode = null;
         try {
-            scanner = new Scanner(infile);
-        } catch (FileNotFoundException e) {
+            sourceCode = new String(Files.readAllBytes(path));
+        } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        while(scanner.hasNextLine()) {
-            sourceCode.append(scanner.nextLine()).append(System.lineSeparator());
-        }
-        return parseSource(sourceCode.toString());
+        return parseSource(sourceCode);
     }
+
     /**
      * Converts a Java file, in String form, into a JavaParser node.
      *

@@ -14,7 +14,7 @@ public class SampleScript {
         assert parsed != null;
         System.out.println(parsed);
 
-        final String PATH_TO_SAMPLES = "src/SampleCode/Compilable/";
+        final String PATH_TO_SAMPLES = "src/test/resources/";
 
         Node correctNode = CAIT.parseFile(PATH_TO_SAMPLES + "CorrectMath.java");
         assert correctNode != null;
