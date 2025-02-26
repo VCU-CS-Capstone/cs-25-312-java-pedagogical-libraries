@@ -1,6 +1,20 @@
 # Meeting Summaries
 Here you will find notes recapping the key points of each synchronous meeting our group partakes in. They are listed in chronological order with the most recent entry at the top.
 
+# 2025-02-26
+**Attendees**: Derek, Luca, Qasimi, Kennedy
+
+**Scribed by**: Derek
+
+> [!WARNING]
+> Nobody has reported progress since Thursday except for Derek's JUnit installation
+
+## Even more short-term tasks
+- **Qasimi**: Fill out SymbolTable
+- **Luca**: Fill out Match and work on findMatches
+- **Kennedy**: Fill out TreeMatcher and work on findMatches
+- **Derek**: Read ParserTest and make notes
+
 # 2025-02-20
 **Attendees**: Derek, Luca, Luke, Qasimi, Kennedy
 
