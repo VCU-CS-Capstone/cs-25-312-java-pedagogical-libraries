@@ -11,15 +11,11 @@ public class TreeMatcher {
         List<Match> output = new ArrayList<>();
         // check if node types are the same
         if (patternNode.getClass().equals(studentNode.getClass())) {
-            List<Node> subtree=new ArrayList<>();
             SymbolTable symbolTable=new SymbolTable();
             // check if the nodes have the same properties
             if (prop(patternNode, studentNode)) {
-                //nodes from subtree list
-                subtree.add(patternNode);
-                subtree.add(studentNode);
                 //match object 
-                output.add(new Match(patternNode,studentNode,subtree,symbolTable));
+                output.add(new Match(patternNode,studentNode,symbolTable));
             }
             //get child nodes 
             List<Node> patternChild=patternNode.getChildNodes();
