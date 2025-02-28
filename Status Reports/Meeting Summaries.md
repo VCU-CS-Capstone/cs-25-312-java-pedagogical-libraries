@@ -1,6 +1,21 @@
 # Meeting Summaries
 Here you will find notes recapping the key points of each synchronous meeting our group partakes in. They are listed in chronological order with the most recent entry at the top.
 
+# 2025-02-27
+**Attendees**: Derek, Luca, Luke, Qasimi, Kennedy
+
+**Scribed by**: Derek
+
+- We should probably update our UML
+- Lecture on unit testing concepts
+
+## Tasks for everyone
+- **Qasimi**: Fill out `Symbol.java` and `SymbolTable.java` (BY SUNDAY)
+- **Derek**: Make notes on GitHub Actions; complete the GitHub reports assignment; revise the UML; check findMatches
+- **Luca**: Take charge of testing, start designing tests (especially for findMatches)
+- **Kennedy**: Implement findMatches
+
+
 # 2025-02-26
 **Attendees**: Derek, Luca, Qasimi, Kennedy
 
