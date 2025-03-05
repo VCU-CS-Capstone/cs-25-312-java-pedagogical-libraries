@@ -6,6 +6,8 @@ import java.util.Objects;
 
 import com.github.javaparser.ast.Node;
 
+/// Drives the AST matching algorithm.
+/// TODO: More description
 public class TreeMatcher {
     public List<Match> findMatches(Node patternNode, Node studentNode) {
         List<Match> output = new ArrayList<>();
@@ -34,5 +36,15 @@ public class TreeMatcher {
     // makes sure that the pattern node and the student node have the same values
     private boolean prop(Node patternNode, Node studentNode) {
         return Objects.equals(patternNode.toString(),studentNode.toString());
+    }
+
+    /**
+     * Check if two nodes match, ignoring their children.
+     * @param nodeA First node to match
+     * @param nodeB Second node to match
+     * @return a boolean representing whether the nodes are structurally identical
+     */
+    public boolean shallowMatch(Node nodeA, Node nodeB) {
+        return false;
     }
 }

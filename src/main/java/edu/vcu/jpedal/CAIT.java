@@ -11,10 +11,11 @@ import com.github.javaparser.StaticJavaParser;
 import com.github.javaparser.ast.CompilationUnit;
 import com.github.javaparser.ast.Node;
 
-/**
- * Capturing AST-Included Trees
- * TODO: write more description here
- */
+/// Capturing AST-Included Trees
+///
+/// Instructor-facing wrapper for internal CAIT methods.
+/// Defers most of its functionality to TreeMatcher.
+/// Also contains methods for converting from source code to AST Nodes.
 public class CAIT {
     /**
      * Wrapper for parseSource that passes in a file's contents.

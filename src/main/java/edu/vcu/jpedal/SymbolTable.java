@@ -7,6 +7,7 @@ import com.github.javaparser.ast.expr.Expression;
 import com.github.javaparser.ast.expr.SimpleName;
 import com.github.javaparser.ast.type.Type;
 
+/// Holds all possible mappings of pattern nodes to source nodes.
 public class SymbolTable {
     // TODO: allow Instructor -> Student mappings
     private Map<String, Symbol> symbolTable;
