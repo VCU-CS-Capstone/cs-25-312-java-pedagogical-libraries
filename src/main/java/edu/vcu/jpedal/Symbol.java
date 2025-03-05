@@ -4,6 +4,7 @@ import com.github.javaparser.ast.expr.Expression;
 import com.github.javaparser.ast.expr.SimpleName;
 import com.github.javaparser.ast.type.Type;
 
+/// Represents a single Java symbol, such as an identifier or literal.
 public class Symbol {
     private SimpleName name;
     private Type dataType;

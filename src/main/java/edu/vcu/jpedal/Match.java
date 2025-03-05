@@ -2,6 +2,7 @@ package edu.vcu.jpedal;
 
 import com.github.javaparser.ast.Node;
 
+/// Represents one possible mapping of the pattern node to the source node.
 public class Match {
     private Node patternNode;
     private Node studentNode;
