@@ -106,7 +106,9 @@ public class CAIT {
         if(matches.isEmpty()) {
             return null;
         }
-        return matches.getFirst();
+        // changed from matches.getFirst() to matches.get(0)
+        // as List.getFirst() is not available pre 21 -ld
+        return matches.get(0);
     }
 
     /**
