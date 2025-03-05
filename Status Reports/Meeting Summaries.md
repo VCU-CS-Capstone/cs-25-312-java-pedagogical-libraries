@@ -1,6 +1,16 @@
 # Meeting Summaries
 Here you will find notes recapping the key points of each synchronous meeting our group partakes in. They are listed in chronological order with the most recent entry at the top.
 
+# 2025-03-05
+**Attendees**: Derek, Luca, Qasimi
+
+**Scribed by**: Derek
+
+> [!WARNING]
+> We are behind schedule on the core tree matching algorithm
+
+- Next meet: show code to Luke
+
 # 2025-02-27
 **Attendees**: Derek, Luca, Luke, Qasimi, Kennedy
 
