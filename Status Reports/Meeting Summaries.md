@@ -1,6 +1,17 @@
 # Meeting Summaries
 Here you will find notes recapping the key points of each synchronous meeting our group partakes in. They are listed in chronological order with the most recent entry at the top.
 
+# 2025-03-06
+**Attendees**: Derek, Luca, Luke, Qasimi
+
+**Scribed by**: Derek
+
+## Discuss SymbolTable details
+- See "Notes and Research/symbol-table.md" for more information
+- SymbolTable: dict(instructorSymbol -> list(studentSymbol))
+- We'll need to identify Symbols by more than just name, as Java holds different namespaces
+- Commutative binops are low-priority; focus on **filtering** irrelevant nodes
+
 # 2025-03-05
 **Attendees**: Derek, Luca, Qasimi
 
