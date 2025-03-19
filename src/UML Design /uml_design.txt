@@ -1,0 +1,83 @@
+@startuml
+
+legend
+  Association
+  Realization / Implementation
+  Containment
+  1..* One or more
+endlegend
+
+interface CAIT {
+    + subtreeComparison(compilationUnit: CompilationUnit, string: String): List<Match>
+    + buildAST(string: String): CompilationUnit
+}
+
+class JPEDAL {
+    + subtreeComparison(compilationUnit: CompilationUnit, string: String): List<Match>
+    + matchTrees(node1: Node, node2: Node): List<Node>
+}
+
+class Subtree_Matching {
+    + findMatches(node1: Node, node2: Node): List<Match>
+    + shallow_match(node1: Node, node2: Node)
+    + deepFindMatch(node1: Node, node2: Node): List<Match>
+    + deepFindMatch_generic(node1: Node, node2: Node): List<Match>
+    + deepFindMatch_SimpleName(node1: Node, node2: Node): List<Match>
+    + merge(list1: List<Match>, list2: List<Match>): List<Match>
+    + buildAST(string: String): CompilationUnit
+    + anyNodeMatch(node1: Node, node2: Node): List<Match>
+    + nameregex(string: String): IdentifierType
+    + metas_match(node1: Node, node2: Node): Boolean
+}
+
+class Match {
+    - studentNode: Node
+    - instructorNode: Node
+    - subtree: List<Node>
+    - symbolTable: SymbolTable
+    + getSymbolTable(): SymbolTable
+    + setSymbolTable(symbolTable: SymbolTable): void
+    + getStudentNode(): Node
+    + setStudentNode(node: Node): void
+    + getInstructorNode(): Node
+    + setInstructorNode(node: Node): void
+    + getSubtree(): List<Node>
+    + setSubtree(list: List<Node>): void
+}
+
+class SymbolTable {
+    - symbolTable: Map<String, Symbol>
+    + addSymbol(key: String, value: Symbol): void
+    + getSymbolDataType(key: String): Type
+    + getSymbolName(key: String): SimpleName
+    + getSymbolValue(key: String): Expression
+}
+
+class Symbol {
+    - name: SimpleName
+    - dataType: Type
+    - value: Expression
+    + getName(): SimpleName
+    + getDataType(): Type
+    + getValue(): Expression
+    + setName(name: SimpleName): void
+    + setDataType(dataType: Type): void
+    + setValue(value: Expression): void
+}
+
+enum IdentifierType {
+    VAR
+    EXP
+    WILD_CARD
+    NONE
+}
+
+CAIT <|.. JPEDAL
+Subtree_Matching --> JPEDAL
+Subtree_Matching --> Match
+Subtree_Matching --> SymbolTable
+SymbolTable --> Match
+SymbolTable o--> Symbol
+Match --> IdentifierType
+
+@enduml
