@@ -1,6 +1,22 @@
 # Meeting Summaries
 Here you will find notes recapping the key points of each synchronous meeting our group partakes in. They are listed in chronological order with the most recent entry at the top.
 
+# 2025-03-19
+**Attendees**: Derek, Luca, Qasimi, Kennedy
+
+**Scribed by**: Derek
+
+## Back from break
+- We need to focus on catching up to deadlines
+
+## Academic Deliverables
+- Poster is mostly fine
+- TODO: Update UML and place into poster and abstract
+
+## UML
+- Source text pushed to repository
+- TODO: Update with notes on each class and cut extraneous components
+
 # 2025-03-06
 **Attendees**: Derek, Luca, Luke, Qasimi
 
