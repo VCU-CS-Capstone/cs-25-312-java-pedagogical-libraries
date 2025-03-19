@@ -10,6 +10,17 @@ public class Symbol {
     private Type dataType;
     private Expression value;
 
+  /*
+  We added this constructor to make unit testing easier by allowing us to create Symbol objects
+  with all necessary values in a single step. This avoids the need to manually set each property
+  using setter methods, making the tests cleaner and more efficient
+   */
+    public Symbol(SimpleName name, Type dataType, Expression value) {
+        this.name = name;
+        this.dataType = dataType;
+        this.value = value;
+    }
+
     public SimpleName getName() {
         return name;
     }
