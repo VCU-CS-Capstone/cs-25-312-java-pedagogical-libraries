@@ -1,40 +1,41 @@
 @startuml CAIT
 
-legend
-  Association
-  Realization / Implementation
-  Containment
-  1..* One or more
-endlegend
-
-interface CAIT {
-    + subtreeComparison(compilationUnit: CompilationUnit, string: String): List<Match>
-    + buildAST(string: String): CompilationUnit
+class CAIT {
+    Instructor-facing wrapper for internal CAIT methods.
+    Defers most of its functionality to TreeMatcher.
+    Also contains methods for parsing Strings into JavaParser Nodes.
+    ==
+    .. Static methods ..
+    + parseFile(String) -> Node
+    + parseFile(Path) -> Node
+    + findMatches(String, String) -> List<Node>
 }
 
-class JPEDAL {
-    + subtreeComparison(compilationUnit: CompilationUnit, string: String): List<Match>
-    + matchTrees(node1: Node, node2: Node): List<Node>
-}
-
-class Subtree_Matching {
-    + findMatches(node1: Node, node2: Node): List<Match>
-    + shallow_match(node1: Node, node2: Node)
-    + deepFindMatch(node1: Node, node2: Node): List<Match>
-    + deepFindMatch_generic(node1: Node, node2: Node): List<Match>
-    + deepFindMatch_SimpleName(node1: Node, node2: Node): List<Match>
+class TreeMatcher {
+    Drives the AST matching algorithm.
+    Can shallow match (attributes only) or deep match (recursive descent).
+    ==
+    .. (Static?) methods ..
+    + findMatches(Node, Node) -> List<Match>
+    + shallowMatch(Node, Node) -> boolean
+    + deepMatch(Node, Node) -> List<Match>
     + merge(list1: List<Match>, list2: List<Match>): List<Match>
     + buildAST(string: String): CompilationUnit
     + anyNodeMatch(node1: Node, node2: Node): List<Match>
-    + nameregex(string: String): IdentifierType
-    + metas_match(node1: Node, node2: Node): Boolean
+    + metasMatch(node1: Node, node2: Node): Boolean
+    --
+    TODO: Should this be static (like System) or instanced (like Scanner)?
 }
 
 class Match {
+    Represents one possible mapping of the pattern node to the source node.
+    ==
+    .. Fields ..
     - studentNode: Node
     - instructorNode: Node
     - subtree: List<Node>
     - symbolTable: SymbolTable
+    .. Methods ..
     + getSymbolTable(): SymbolTable
     + setSymbolTable(symbolTable: SymbolTable): void
     + getStudentNode(): Node
@@ -46,7 +47,13 @@ class Match {
 }
 
 class SymbolTable {
+    Holds all potential mappings of pattern nodes to source nodes.
+    ==
+    .. Fields ..
+    - table: Map<Symbol, Symbol>
     - symbolTable: Map<String, Symbol>
+    .. Methods ..
+    + merge(SymbolTable) -> SymbolTable
     + addSymbol(key: String, value: Symbol): void
     + getSymbolDataType(key: String): Type
     + getSymbolName(key: String): SimpleName
@@ -54,9 +61,16 @@ class SymbolTable {
 }
 
 class Symbol {
+    Represents a single Java symbol, such as an identifier or literal.
+    ==
+    .. Fields ..
     - name: SimpleName
     - dataType: Type
     - value: Expression
+    - identifierType: IdentifierType
+    .. Methods ..
+    + Symbol(Node)
+    + match(Symbol): boolean
     + getName(): SimpleName
     + getDataType(): Type
     + getValue(): Expression
@@ -66,16 +80,23 @@ class Symbol {
 }
 
 enum IdentifierType {
-    VAR
-    EXP
-    WILD_CARD
+    Represents the possible patterns programmable by the instructor.
+    Wrap in single underscores for SYMBOL,
+    Wrap in double underscores for EXPRESSION,
+    Triple underscore for WILD_CARD
+    ==
+    .. Values ..
     NONE
+    SYMBOL
+    EXPRESSION
+    WILD_CARD
+    .. Static methods ..
+    + identify(lexeme: String): IdentifierType
 }
 
-CAIT <|.. JPEDAL
-Subtree_Matching --> JPEDAL
-Subtree_Matching --> Match
-Subtree_Matching --> SymbolTable
+CAIT --> TreeMatcher
+TreeMatcher --> Match
+TreeMatcher --> SymbolTable
 SymbolTable --> Match
 SymbolTable o--> Symbol
 Match --> IdentifierType
