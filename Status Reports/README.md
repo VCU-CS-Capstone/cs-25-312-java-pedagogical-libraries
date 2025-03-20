@@ -39,8 +39,8 @@ Status Report Fall Week XX.md is a template for to copy-paste into new Status re
 | Week 5 Status Report | String -> AST, simple tree matching | Submitted new timeline | Still no robust task delegation |
 | Week 6 Status Report | Full matching with symbol table merging | String/File -> AST, tree structural equality | Progress keeps stagnating before Wednesday meetings |
 | Week 7 Status Report | New UML, symbol table merging | JUnit setup, began findMatches | Java technical difficulties |
-| Week 8 Status Report | | | |
-| Week 9 Status Report | | | |
+| Week 8 Status Report | New UML, abstract, poster | Started filling class implementations | Behind schedule on algorithm understanding |
+| Week 9 Status Report | (Spring Break) | N/A | N/A |
 | Week 10 Status Report | | | |
 | Week 11 Status Report | | | |
 | Week 12 Status Report | | | |
