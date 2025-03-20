@@ -1,11 +1,13 @@
+# Symbol
+- A **variable name**, **method name**, **class name**, or **wildcard pattern** (`_var_`)
+
 # Symbol table
 - Map each instructor Symbol to a List of student Symbols
 
 Consider the instructor pattern:
 ```python
 for insSym1 in insList:
-	insSym2 = insSym2 + 1
-```
+	insSym2 = insSym2 + 1 ```
 and the student code:
 ```python
 for stdSym1 in stdList:
