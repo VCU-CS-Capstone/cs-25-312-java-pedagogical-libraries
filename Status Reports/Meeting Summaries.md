@@ -1,6 +1,17 @@
 # Meeting Summaries
 Here you will find notes recapping the key points of each synchronous meeting our group partakes in. They are listed in chronological order with the most recent entry at the top.
 
+# 2025-03-20
+**Attendees**: Derek, Luca, Luke, Qasimi, Kennedy
+
+**Scribed by**: Derek
+
+## Review of tree matching algorithm and pseudocode
+- `deep_find_match_generic`, BinOp, etc. are for non-literal terms in the pattern code (with underscores, like `_var_`)
+- `find_matches` is the front-end method that runs pre-processing to be sent into `any_node_match`
+- `any_node_match` simply runs a breadth-first search, adding matches into a List and returning that
+- look in [`pedal/tests/test_cait.py`](https://github.com/pedal-edu/pedal/blob/master/tests/test_cait.py) for things to test
+
 # 2025-03-19
 **Attendees**: Derek, Luca, Qasimi, Kennedy
 
