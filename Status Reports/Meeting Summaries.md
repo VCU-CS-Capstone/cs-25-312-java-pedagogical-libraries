@@ -1,6 +1,28 @@
 # Meeting Summaries
 Here you will find notes recapping the key points of each synchronous meeting our group partakes in. They are listed in chronological order with the most recent entry at the top.
 
+# 2025-03-26
+**Attendees**: Derek, Luca, Qasimi, Kennedy
+
+**Scribed by**: Derek
+
+## Whiteboard algorithm
+```
+for (child : pattern)
+    for (candidate : source)
+        if (!child.structuralMatch(candidate))
+            continue
+        match = findMatches(child, candidate) # recur
+        if(match)
+            merge(match, outList)
+return outList
+```
+
+## Next steps
+- Finish up poster and abstract
+- Write in something for `findMatches`
+- Port test cases from the Python pedal repository
+
 # 2025-03-20
 **Attendees**: Derek, Luca, Luke, Qasimi, Kennedy
 
