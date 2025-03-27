@@ -65,13 +65,21 @@ public class CAIT {
     }
 
     /**
-     * Takes the code snippet and transforms it into a compilable source file before passing it into parseSource.
-     * @param codePattern any code pattern, not including its main function
-     * @return the AST node generated from wrapping the snippet in a Java class
+     * @see CAIT#parsePattern(String, String)
      */
     public static Node parsePattern(String codePattern) {
+        return parsePattern(codePattern, "CodeSnippet");
+    }
+
+    /**
+     * Takes the code snippet and transforms it into a compilable source file before passing it into parseSource.
+     * @param codePattern any code pattern, not including its main function
+     * @param moduleName name of the generated public class, defaults to CodeSnippet
+     * @return the AST node generated from wrapping the snippet in a Java class
+     */
+    public static Node parsePattern(String codePattern, String moduleName) {
         CompilationUnit parsedTree;
-        String wrappedSource = "public class InstructorPattern { public static void main(String[] args) { %s } }".formatted(codePattern);
+        String wrappedSource = "public class %s { public static void main(String[] args) { %s } }".formatted(moduleName, codePattern);
         return parseSource(wrappedSource);
     }
 
