@@ -41,7 +41,7 @@ Status Report Fall Week XX.md is a template for to copy-paste into new Status re
 | Week 7 Status Report | New UML, symbol table merging | JUnit setup, began findMatches | Java technical difficulties |
 | Week 8 Status Report | New UML, abstract, poster | Started filling class implementations | Behind schedule on algorithm understanding |
 | Week 9 Status Report | (Spring Break) | N/A | N/A |
-| Week 10 Status Report | | | |
+| Week 10 Status Report | Progress on abstract, testing | Updated UML, reviewed previous group notes | Lack of incremental test cases |
 | Week 11 Status Report | | | |
 | Week 12 Status Report | | | |
 | Week 13 Status Report | | | |
