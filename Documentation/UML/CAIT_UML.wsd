@@ -6,9 +6,9 @@ class CAIT {
     Also contains methods for parsing Strings into JavaParser Nodes.
     ==
     .. Static methods ..
-    + parseFile(String) -> Node
-    + parseFile(Path) -> Node
-    + findMatches(String, String) -> List<Node>
+    + parseFile(fileText: String) -> Node
+    + parseFile(filePath: Path) -> Node
+    + findMatches(pattern: String, source: String) -> List<Node>
 }
 
 class TreeMatcher {
@@ -16,9 +16,9 @@ class TreeMatcher {
     Can shallow match (attributes only) or deep match (recursive descent).
     ==
     .. (Static?) methods ..
-    + findMatches(Node, Node) -> List<Match>
-    + shallowMatch(Node, Node) -> boolean
-    + deepMatch(Node, Node) -> List<Match>
+    + findMatches(node1: Node, node2: Node) -> List<Match>
+    + shallowMatch(node1: Node, node2: Node) -> boolean
+    + deepMatch(node1: Node, node2: Node) -> List<Match>
     + merge(list1: List<Match>, list2: List<Match>): List<Match>
     + buildAST(string: String): CompilationUnit
     + anyNodeMatch(node1: Node, node2: Node): List<Match>
@@ -53,7 +53,7 @@ class SymbolTable {
     - table: Map<Symbol, Symbol>
     - symbolTable: Map<String, Symbol>
     .. Methods ..
-    + merge(SymbolTable) -> SymbolTable
+    + merge(other: SymbolTable) -> SymbolTable
     + addSymbol(key: String, value: Symbol): void
     + getSymbolDataType(key: String): Type
     + getSymbolName(key: String): SimpleName
@@ -69,7 +69,7 @@ class Symbol {
     - value: Expression
     - identifierType: IdentifierType
     .. Methods ..
-    + Symbol(Node)
+    + Symbol(sourceNode: Node)
     + match(Symbol): boolean
     + getName(): SimpleName
     + getDataType(): Type
@@ -94,11 +94,11 @@ enum IdentifierType {
     + identify(lexeme: String): IdentifierType
 }
 
-CAIT --> TreeMatcher
+CAIT -> TreeMatcher
 TreeMatcher --> Match
-TreeMatcher --> SymbolTable
+TreeMatcher -> SymbolTable
 SymbolTable --> Match
-SymbolTable o--> Symbol
+SymbolTable --> Symbol
 Match --> IdentifierType
 
 @enduml
