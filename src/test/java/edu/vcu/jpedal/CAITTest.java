@@ -87,4 +87,16 @@ class CAITTest {
 
         assertTrue(CAIT.nodesAreEqual(node1, node2), "Nodes formed from structurally identical files should be equal");
     }
+
+    @Test
+    void testClassWrapper() {
+        String snippet = "int x = 5;";
+        String source = "public class Example { public static void main(String[] args) { int y = 5; } }";
+        Node node1 = CAIT.parsePattern(snippet);
+        assertNotNull(node1, "Valid source code should not return null");
+        Node node2 = CAIT.parseSource(source);
+        assertNotNull(node2, "Valid source code should not return null");
+
+        assertTrue(CAIT.nodesAreEqual(node1, node2), "Code snippet should be identical when compared to wrapper");
+    }
 }
