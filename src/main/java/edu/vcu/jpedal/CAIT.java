@@ -35,7 +35,7 @@ public class CAIT {
      * @return the resulting JavaParser Node
      */
     public static Node parseFile(Path path) {
-        String sourceCode = null;
+        String sourceCode;
         try {
             sourceCode = new String(Files.readAllBytes(path));
         } catch (IOException e) {
@@ -62,6 +62,17 @@ public class CAIT {
         }
         // CompilationUnit is a subclass of Node so we don't actually need to reach into its root -dc
         return parsedTree;
+    }
+
+    /**
+     * Takes the code snippet and transforms it into a compilable source file before passing it into parseSource.
+     * @param codePattern any code pattern, not including its main function
+     * @return the AST node generated from wrapping the snippet in a Java class
+     */
+    public static Node parsePattern(String codePattern) {
+        CompilationUnit parsedTree;
+        String wrappedSource = "public class InstructorPattern { public static void main(String[] args) { %s } }".formatted(codePattern);
+        return parseSource(wrappedSource);
     }
 
     /**
