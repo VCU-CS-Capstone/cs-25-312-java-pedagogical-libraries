@@ -1,6 +1,6 @@
 @startuml CAIT
 
-title "CAIT (Capturing AST-Included Trees)"
+title "**CAIT (Capturing AST-Included Trees)**"
 
 left to right direction
 
@@ -9,7 +9,7 @@ class CAIT {
     Defers most of its functionality to TreeMatcher.
     Also contains methods for parsing Strings into JavaParser Nodes.
     ==
-    .. Static methods ..
+    .. **Static methods** ..
     + parseFile(fileText: String) -> Node
     + parseFile(filePath: Path) -> Node
     + parseSource(source: String) -> Node
@@ -20,7 +20,7 @@ class TreeMatcher {
     Drives the AST matching algorithm.
     Can shallow match (attributes only) or deep match (recursive descent).
     ==
-    .. Methods ..
+    .. **Methods** ..
     + findMatches(node1: Node, node2: Node) -> List<Match>
     + shallowMatch(node1: Node, node2: Node) -> boolean
     + deepMatch(node1: Node, node2: Node) -> List<Match>
@@ -29,7 +29,7 @@ class TreeMatcher {
 class Match {
     Represents one possible mapping of the pattern node to the source node.
     ==
-    .. Fields ..
+    .. **Fields** ..
     - studentNode: Node
     - instructorNode: Node
     - symbolTable: SymbolTable
@@ -38,9 +38,9 @@ class Match {
 class SymbolTable {
     Holds all potential mappings of pattern nodes to source nodes.
     ==
-    .. Fields ..
+    .. **Fields** ..
     - table: Map<Symbol, Symbol>
-    .. Methods ..
+    .. **Methods** ..
     + merge(other: SymbolTable) -> SymbolTable
     + addSymbol(key: String, value: Symbol) -> void
     + getSymbolDataType(key: String) -> Type
@@ -51,9 +51,9 @@ class SymbolTable {
 class InstructorSymbolTable extends SymbolTable {
     Adds one-to-many mapping utilities.
     ==
-    .. Fields ..
+    .. **Fields** ..
     - instructorToStudentMapping: Map<String, Map<String, Symbol>>
-    .. Methods ..
+    .. **Methods** ..
     + addStudentSymbol(instructorKey: String, studentKey: String, studentSymbol: Symbol) -> void
     + lookupStudentSymbol(instructorKey: String, studentKey: String) -> Symbol
     + mergeInstructorTable(other: InstructorSymbolTable) -> void
@@ -63,9 +63,9 @@ class InstructorSymbolTable extends SymbolTable {
 class ScopedSymbolTable extends SymbolTable {
     Additionally tracks scope of nodes.
     ==
-    .. Fields ..
+    .. **Fields** ..
     - scopes: Map<String, SymbolTable>
-    .. Methods ..
+    .. **Methods** ..
     + addScope(scopeName: String) -> void
     + getScope(scopeName: String) -> SymbolTable
     + lookup(key: String, scopeName: String) -> Symbol
@@ -74,12 +74,12 @@ class ScopedSymbolTable extends SymbolTable {
 class Symbol {
     Represents a single Java symbol, such as an identifier or literal.
     ==
-    .. Fields ..
+    .. **Fields** ..
     - name: SimpleName
     - dataType: Type
     - value: Expression
     - identifierType: IdentifierType
-    .. Methods ..
+    .. **Methods** ..
     + Symbol(sourceNode: Node)
     + match(other: Symbol): boolean
 }
@@ -87,12 +87,12 @@ class Symbol {
 enum IdentifierType {
     Represents the possible patterns usable by the instructor.
     ==
-    .. Values ..
+    .. **Values** ..
     NONE
     SYMBOL
     EXPRESSION
     WILD_CARD
-    .. Static methods ..
+    .. **Static methods** ..
     + identify(lexeme: String): IdentifierType
 }
 
