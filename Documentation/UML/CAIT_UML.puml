@@ -48,6 +48,18 @@ class SymbolTable {
     + getSymbolValue(key: String) -> Expression
 }
 
+class InstructorSymbolTable extends SymbolTable {
+    Adds one-to-many mapping utilities.
+    ==
+    .. Fields ..
+    - instructorToStudentMapping: Map<String, Map<String, Symbol>>
+    .. Methods ..
+    + addStudentSymbol(instructorKey: String, studentKey: String, studentSymbol: Symbol) -> void
+    + lookupStudentSymbol(instructorKey: String, studentKey: String) -> Symbol
+    + mergeInstructorTable(other: InstructorSymbolTable) -> void
+    + hasConflict(instructorKey: String, studentKey: String) -> boolean
+}
+
 class ScopedSymbolTable extends SymbolTable {
     Additionally tracks scope of nodes.
     ==
@@ -57,18 +69,6 @@ class ScopedSymbolTable extends SymbolTable {
     + addScope(scopeName: String) -> void
     + getScope(scopeName: String) -> SymbolTable
     + lookup(key: String, scopeName: String) -> Symbol
-}
-
-class InstructorSymbolTable extends SymbolTable {
-    Adds many-to-one mapping utilities.
-    ==
-    .. Fields ..
-    - instructorToStudentMapping: Map<String, Map<String, Symbol>>
-    .. Methods ..
-    + addStudentSymbol(instructorKey: String, studentKey: String, studentSymbol: Symbol) -> void
-    + lookupStudentSymbol(instructorKey: String, studentKey: String) -> Symbol
-    + mergeInstructorTable(other: InstructorSymbolTable) -> void
-    + hasConflict(instructorKey: String, studentKey: String) -> boolean
 }
 
 class Symbol {
@@ -86,9 +86,6 @@ class Symbol {
 
 enum IdentifierType {
     Represents the possible patterns usable by the instructor.
-    Wrap in single underscores for SYMBOL,
-    Wrap in double underscores for EXPRESSION,
-    Triple underscore for WILD_CARD
     ==
     .. Values ..
     NONE
@@ -103,7 +100,7 @@ CAIT --> TreeMatcher
 TreeMatcher --> Match
 TreeMatcher -> SymbolTable
 SymbolTable --> Match
-SymbolTable -> Symbol
-Symbol --> IdentifierType
+Symbol <-- SymbolTable
+Symbol -> IdentifierType
 
 @enduml
