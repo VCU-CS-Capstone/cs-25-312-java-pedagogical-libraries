@@ -1,5 +1,9 @@
 @startuml CAIT
 
+title "CAIT (Capturing AST-Included Trees)"
+
+left to right direction
+
 class CAIT {
     Instructor-facing wrapper for internal CAIT methods.
     Defers most of its functionality to TreeMatcher.
@@ -8,6 +12,7 @@ class CAIT {
     .. Static methods ..
     + parseFile(fileText: String) -> Node
     + parseFile(filePath: Path) -> Node
+    + parseSource(source: String) -> Node
     + findMatches(pattern: String, source: String) -> List<Node>
 }
 
@@ -15,16 +20,10 @@ class TreeMatcher {
     Drives the AST matching algorithm.
     Can shallow match (attributes only) or deep match (recursive descent).
     ==
-    .. (Static?) methods ..
+    .. Methods ..
     + findMatches(node1: Node, node2: Node) -> List<Match>
     + shallowMatch(node1: Node, node2: Node) -> boolean
     + deepMatch(node1: Node, node2: Node) -> List<Match>
-    + merge(list1: List<Match>, list2: List<Match>): List<Match>
-    + buildAST(string: String): CompilationUnit
-    + anyNodeMatch(node1: Node, node2: Node): List<Match>
-    + metasMatch(node1: Node, node2: Node): Boolean
-    --
-    TODO: Should this be static (like System) or instanced (like Scanner)?
 }
 
 class Match {
@@ -33,17 +32,7 @@ class Match {
     .. Fields ..
     - studentNode: Node
     - instructorNode: Node
-    - subtree: List<Node>
     - symbolTable: SymbolTable
-    .. Methods ..
-    + getSymbolTable(): SymbolTable
-    + setSymbolTable(symbolTable: SymbolTable): void
-    + getStudentNode(): Node
-    + setStudentNode(node: Node): void
-    + getInstructorNode(): Node
-    + setInstructorNode(node: Node): void
-    + getSubtree(): List<Node>
-    + setSubtree(list: List<Node>): void
 }
 
 class SymbolTable {
@@ -51,13 +40,35 @@ class SymbolTable {
     ==
     .. Fields ..
     - table: Map<Symbol, Symbol>
-    - symbolTable: Map<String, Symbol>
     .. Methods ..
     + merge(other: SymbolTable) -> SymbolTable
-    + addSymbol(key: String, value: Symbol): void
-    + getSymbolDataType(key: String): Type
-    + getSymbolName(key: String): SimpleName
-    + getSymbolValue(key: String): Expression
+    + addSymbol(key: String, value: Symbol) -> void
+    + getSymbolDataType(key: String) -> Type
+    + getSymbolName(key: String) -> SimpleName
+    + getSymbolValue(key: String) -> Expression
+}
+
+class ScopedSymbolTable extends SymbolTable {
+    Additionally tracks scope of nodes.
+    ==
+    .. Fields ..
+    - scopes: Map<String, SymbolTable>
+    .. Methods ..
+    + addScope(scopeName: String) -> void
+    + getScope(scopeName: String) -> SymbolTable
+    + lookup(key: String, scopeName: String) -> Symbol
+}
+
+class InstructorSymbolTable extends SymbolTable {
+    Adds many-to-one mapping utilities.
+    ==
+    .. Fields ..
+    - instructorToStudentMapping: Map<String, Map<String, Symbol>>
+    .. Methods ..
+    + addStudentSymbol(instructorKey: String, studentKey: String, studentSymbol: Symbol) -> void
+    + lookupStudentSymbol(instructorKey: String, studentKey: String) -> Symbol
+    + mergeInstructorTable(other: InstructorSymbolTable) -> void
+    + hasConflict(instructorKey: String, studentKey: String) -> boolean
 }
 
 class Symbol {
@@ -70,17 +81,11 @@ class Symbol {
     - identifierType: IdentifierType
     .. Methods ..
     + Symbol(sourceNode: Node)
-    + match(Symbol): boolean
-    + getName(): SimpleName
-    + getDataType(): Type
-    + getValue(): Expression
-    + setName(name: SimpleName): void
-    + setDataType(dataType: Type): void
-    + setValue(value: Expression): void
+    + match(other: Symbol): boolean
 }
 
 enum IdentifierType {
-    Represents the possible patterns programmable by the instructor.
+    Represents the possible patterns usable by the instructor.
     Wrap in single underscores for SYMBOL,
     Wrap in double underscores for EXPRESSION,
     Triple underscore for WILD_CARD
@@ -94,11 +99,11 @@ enum IdentifierType {
     + identify(lexeme: String): IdentifierType
 }
 
-CAIT -> TreeMatcher
+CAIT --> TreeMatcher
 TreeMatcher --> Match
 TreeMatcher -> SymbolTable
 SymbolTable --> Match
-SymbolTable --> Symbol
-Match --> IdentifierType
+SymbolTable -> Symbol
+Symbol --> IdentifierType
 
 @enduml
