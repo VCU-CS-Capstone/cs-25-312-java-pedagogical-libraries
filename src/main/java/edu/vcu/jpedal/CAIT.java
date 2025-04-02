@@ -92,8 +92,6 @@ public class CAIT {
      * @return whether the two trees are structurally equivalent
      */
     public static boolean nodesAreEqual(Node node1, Node node2) {
-        // get the children of each node
-        // there may be a more memory-efficient way to do this but this should work for now -ld
         List<Node> childrenNode1 = node1.getChildNodes();
         List<Node> childrenNode2 = node2.getChildNodes();
 
@@ -104,12 +102,11 @@ public class CAIT {
         // iterate through each child, return false if at any point the nodes are not equal -ld
         for (int i = 0; i < childrenNode1.size(); ++i) {
             if (!nodesAreEqual(childrenNode1.get(i), childrenNode2.get(i))) {
-                // System.out.printf("Failed: '%s' and '%s' are not equal.\n", childrenNode1.get(i).toString(), childrenNode2.get(i).toString());
                 return false;
             }
         }
 
-        // return true if the nodes have equal amount of children -ld
+        // no differences found
         return true;
     }
 
