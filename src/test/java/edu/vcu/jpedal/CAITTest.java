@@ -125,8 +125,8 @@ class CAITTest {
                 """;
 
         TreeMatcher matcher = new TreeMatcher();
-        Node instructorAST = CAIT.parseSource(instructorCode);
-        Node studentAST = CAIT.parseSource(studentCode);
+        Node instructorAST = CAIT.parsePattern(instructorCode);
+        Node studentAST = CAIT.parsePattern(studentCode);
 
 
         List<Match> matches = matcher.findMatches(instructorAST, studentAST);
