@@ -1,6 +1,21 @@
 # Meeting Summaries
 Here you will find notes recapping the key points of each synchronous meeting our group partakes in. They are listed in chronological order with the most recent entry at the top.
 
+# 2025-04-03
+**Attendees**: Derek, Luca, Luke, Qasimi, Kennedy
+
+**Scribed by**: Derek
+
+## Nothing new
+
+## Next steps
+- Get tests ported to start testing functionality
+- **Symbol tables**: `test_many_to_one` and `test_one_to_many` in `test_cait.py`
+- TODO: Write direct tests for SymbolTable in addition to the above indirect tests
+- `shallowMatch`: consider using reflection to inspect which attributes the Nodes have?
+    - Or can we just check the types?
+    - Check additional attributes only on certain types, e.g. name and literal
+
 # 2025-03-26
 **Attendees**: Derek, Luca, Qasimi, Kennedy
 
