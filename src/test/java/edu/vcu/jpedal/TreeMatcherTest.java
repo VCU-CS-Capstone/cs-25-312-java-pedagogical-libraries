@@ -37,7 +37,6 @@ public class TreeMatcherTest {
         Node instructorAST = CAIT.parsePattern(instructorCode);
         Node studentAST = CAIT.parsePattern(studentCode);
 
-
         List<Match> matches = TreeMatcher.findMatches(instructorAST, studentAST);
         assertFalse(matches.isEmpty(), "No matches found");
 
@@ -46,8 +45,18 @@ public class TreeMatcherTest {
         // assertTrue(firstMatch.get("_accu_").length == 4, "Incorrect variable map");
     }
 
+    /**
+     * Test that variable wildcards can match.
+     */
     @Test
     void testVarMatch() {
+        Node instructorAST = CAIT.parsePattern("int _accu_ = 0;");
+        Node studentAST = CAIT.parsePattern("int accumulator = 0;");
+
+        List<Match> matches = TreeMatcher.findMatches(instructorAST, studentAST);
+        assertFalse(matches.isEmpty(), "No matches found");
+
+        // TODO: dive into the match itself
 
     }
 }
