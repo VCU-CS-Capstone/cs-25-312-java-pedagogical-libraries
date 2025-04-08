@@ -9,17 +9,42 @@ import com.github.javaparser.ast.Node;
 /// Drives the AST matching algorithm.
 /// TODO: More description
 public class TreeMatcher {
-    public List<Match> findMatches(Node patternNode, Node studentNode) {
+    public static List<Match> findMatches(Node patternNode, Node studentNode) {
+        // TODO: preprocessing
+
+        List<Match> output = deepMatch(patternNode, studentNode);
+
+        return output;
+    }
+
+    /**
+     * Check if two nodes match, ignoring their children.
+     * @param nodeA First node to match
+     * @param nodeB Second node to match
+     * @return a boolean representing whether the nodes are structurally identical
+     */
+    public static boolean shallowMatch(Node nodeA, Node nodeB) {
+        if(nodeA.getClass() != nodeB.getClass()) {
+            return false;
+        }
+        // TODO: check more attributes
+        return true;
+    }
+
+    /**
+     * Recursively check for all possible ways to match two nodes.
+     * @param patternNode first node to match
+     * @param studentNode second node to match
+     * @return a List of all possible matches
+     */
+    public static List<Match> deepMatch(Node patternNode, Node studentNode) {
         List<Match> output = new ArrayList<>();
-        // check if node types are the same
         if (patternNode.getClass().equals(studentNode.getClass())) {
             SymbolTable symbolTable=new SymbolTable();
             // check if the nodes have the same properties
             if (prop(patternNode, studentNode)) {
-                //match object 
                 output.add(new Match(patternNode,studentNode,symbolTable));
             }
-            //get child nodes 
             List<Node> patternChild=patternNode.getChildNodes();
             List<Node> studentChild=studentNode.getChildNodes();
 
@@ -34,17 +59,8 @@ public class TreeMatcher {
     }
 
     // makes sure that the pattern node and the student node have the same values
-    private boolean prop(Node patternNode, Node studentNode) {
+    private static boolean prop(Node patternNode, Node studentNode) {
         return Objects.equals(patternNode.toString(),studentNode.toString());
     }
 
-    /**
-     * Check if two nodes match, ignoring their children.
-     * @param nodeA First node to match
-     * @param nodeB Second node to match
-     * @return a boolean representing whether the nodes are structurally identical
-     */
-    public boolean shallowMatch(Node nodeA, Node nodeB) {
-        return false;
-    }
 }

@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
 import java.util.List;
 
 import com.github.javaparser.StaticJavaParser;
@@ -134,26 +133,17 @@ public class CAIT {
      * @param studentCode entire student source code in one string
      * @return a List of all Matches found (may be empty)
      */
-
-     // TODO: Use TreeMatcher to get matches
     public static List<Match> findMatches(String pattern, String studentCode) {
-        //empty list to store the matches
-        List <Match> matches= new ArrayList<>();
-
-        // conversion into AST happens here 
+        // conversion into AST happens here
         Node patternAST=parseSource(pattern);
         Node studentAST=parseSource(studentCode);
 
         //checking to see if the parsing failed
         if(patternAST==null || studentAST==null){
             System.out.println("Error parsing the pattern or student code.");
-            return matches;
+            return null;
         }
-        //find matches between the two ASTs
-        TreeMatcher matcher=new TreeMatcher();
 
-        //add all the matches found to the list 
-        matches.addAll(matcher.findMatches(patternAST, studentAST));
-        return matches;
+        return TreeMatcher.findMatches(patternAST, studentAST);
     }
 }
