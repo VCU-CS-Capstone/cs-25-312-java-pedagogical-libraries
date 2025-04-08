@@ -34,18 +34,20 @@ public class TreeMatcherTest {
                 System.out.println(sum);
                 """;
 
-        TreeMatcher matcher = new TreeMatcher();
         Node instructorAST = CAIT.parsePattern(instructorCode);
         Node studentAST = CAIT.parsePattern(studentCode);
 
 
-        List<Match> matches = matcher.findMatches(instructorAST, studentAST);
+        List<Match> matches = TreeMatcher.findMatches(instructorAST, studentAST);
         assertFalse(matches.isEmpty(), "No matches found");
 
         Match firstMatch = matches.get(0);
         // TODO: make it possible to get the instances of a symbol out of a match
         // assertTrue(firstMatch.get("_accu_").length == 4, "Incorrect variable map");
+    }
 
+    @Test
+    void testVarMatch() {
 
     }
 }
