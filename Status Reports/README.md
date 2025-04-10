@@ -43,7 +43,7 @@ Status Report Fall Week XX.md is a template for to copy-paste into new Status re
 | Week 9 Status Report | (Spring Break) | N/A | N/A |
 | Week 10 Status Report | Progress on abstract, testing | Updated UML, reviewed previous group notes | Lack of incremental test cases |
 | Week 11 Status Report | Begin presentable demo | Finished academic deliverables | Slow progress on core code |
-| Week 12 Status Report | | | |
+| Week 12 Status Report | Throw down more method implementations | Began presentable demo | Code progress still slow! |
 | Week 13 Status Report | | | |
 | Week 14 Status Report | | | |
 | Week 15 Status Report | | | |
