@@ -1,6 +1,17 @@
 # Meeting Summaries
 Here you will find notes recapping the key points of each synchronous meeting our group partakes in. They are listed in chronological order with the most recent entry at the top.
 
+# 2025-04-09
+**Attendees**: Derek, Luca, Qasimi, Kennedy
+
+**Scribed by**: Derek
+
+- Discuss EXPO details - Friday, April 25, 8:00 - 12:30
+- **Derek**: Flesh out `deepMatch` method
+- **Luca**: Look through `shallowMatch` properties and come up with EXPO questions
+- **Qasimi**: Focus on `symbolTable`
+- **Kennedy**: Add a few more tests and investigate GUI for demo
+
 # 2025-04-03
 **Attendees**: Derek, Luca, Luke, Qasimi, Kennedy
 
