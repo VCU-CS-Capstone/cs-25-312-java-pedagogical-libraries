@@ -32,35 +32,39 @@ public class TreeMatcher {
     }
 
     /**
-     * Recursively check for all possible ways to match two nodes.
-     * @param patternNode first node to match
-     * @param studentNode second node to match
+     * Recursively check for all possible instances of a pattern in a given source.
+     * @param patternNode pattern node to search for
+     * @param studentNode source node to search through
      * @return a List of all possible matches
      */
     public static List<Match> deepMatch(Node patternNode, Node studentNode) {
         List<Match> output = new ArrayList<>();
-        if (patternNode.getClass().equals(studentNode.getClass())) {
-            SymbolTable symbolTable=new SymbolTable();
-            // check if the nodes have the same properties
-            if (prop(patternNode, studentNode)) {
-                output.add(new Match(patternNode,studentNode,symbolTable));
-            }
-            List<Node> patternChild=patternNode.getChildNodes();
-            List<Node> studentChild=studentNode.getChildNodes();
-
-            // make sure both nodes have the same num of children
-            if (patternChild.size()==studentChild.size()) {
-                for (int x= 0;x < patternChild.size();x++) {
-                    output.addAll(findMatches(patternChild.get(x),studentChild.get(x)));
-                }
-            }
+        if (!shallowMatch(patternNode, studentNode)) {
+            return output;
         }
+
+        List<Node> patternChildren = patternNode.getChildNodes();
+        List<Node> studentChildren = studentNode.getChildNodes();
+
+        if (patternChildren.isEmpty() && studentChildren.isEmpty()) {
+            // leaf nodes
+            // TODO: what is SymbolTable actually doing here? what should we put in it?
+            output.add(new Match(patternNode, studentNode, new SymbolTable()));
+            return output;
+        }
+
+        if (patternChildren.size() > studentChildren.size()) {
+            // not enough children - no match possible
+            return output;
+        }
+
+        for (int studentInd = 0; studentInd < studentChildren.size(); studentInd++) {
+            if (!shallowMatch(patternChildren.getFirst(), studentChildren.get(studentInd))) {
+                continue;
+            }
+            // TODO: figure out iterating children
+        }
+
         return output;
     }
-
-    // makes sure that the pattern node and the student node have the same values
-    private static boolean prop(Node patternNode, Node studentNode) {
-        return Objects.equals(patternNode.toString(),studentNode.toString());
-    }
-
 }
