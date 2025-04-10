@@ -135,7 +135,7 @@ public class CAIT {
      */
     public static List<Match> findMatches(String pattern, String studentCode) {
         // conversion into AST happens here
-        Node patternAST=parseSource(pattern);
+        Node patternAST=parsePattern(pattern);
         Node studentAST=parseSource(studentCode);
 
         //checking to see if the parsing failed

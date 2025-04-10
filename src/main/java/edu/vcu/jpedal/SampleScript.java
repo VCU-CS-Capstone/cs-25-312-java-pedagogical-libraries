@@ -7,9 +7,8 @@ import com.github.javaparser.ast.Node;
 /// In that case, we can use this script as a usage example.
 public class SampleScript {
     public static void main(String[] args) {
-        Node parsed = CAIT.parseSource(
-                "public class SuperAwesome { public static void main(String[] args) { int x = 3; } }");
-        assert parsed != null;
-        System.out.println(parsed);
+        String pattern = "int _thingy_ = 3;";
+        String code = "public class SuperAwesome { public static void main(String[] args) { int x = 3; } }";
+        System.out.println(CAIT.findMatches("int _thingy_ = 3;", code));
     }
 }
