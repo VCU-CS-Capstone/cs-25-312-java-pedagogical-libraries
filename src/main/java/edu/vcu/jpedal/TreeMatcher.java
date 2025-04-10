@@ -19,12 +19,12 @@ public class TreeMatcher {
 
     /**
      * Check if two nodes match, ignoring their children.
-     * @param nodeA First node to match
-     * @param nodeB Second node to match
+     * @param instructorNode First node to match
+     * @param studentNode Second node to match
      * @return a boolean representing whether the nodes are structurally identical
      */
-    public static boolean shallowMatch(Node nodeA, Node nodeB) {
-        if(nodeA.getClass() != nodeB.getClass()) {
+    public static boolean shallowMatch(Node instructorNode, Node studentNode) {
+        if(instructorNode.getClass() != studentNode.getClass()) {
             return false;
         }
         // TODO: check more attributes
