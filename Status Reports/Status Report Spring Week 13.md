@@ -13,13 +13,11 @@
 * Luke Gusukuma
 
 ## 1) Accomplishments this week ##
-* investigate databases done by student A
-* make flowcharts done by students A and B
+* **Derek**: Made scaffolding for deepMatch method
 
 ## 2) Milestones to be completed next week ##
-* debug the code to be performed by student C
+* Tighten up `SymbolTable` and `deepMatch` implementations
 
 ## 3) Issues, problems or concerns ##
-* student C needs to learn java
-* database repository costs big $$$
+* Everyone's very busy at this point in the semester
 
