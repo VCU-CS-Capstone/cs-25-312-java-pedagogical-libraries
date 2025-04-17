@@ -1,6 +1,16 @@
 # Meeting Summaries
 Here you will find notes recapping the key points of each synchronous meeting our group partakes in. They are listed in chronological order with the most recent entry at the top.
 
+# 2025-04-16
+**Attendees (in person)**: Derek, Luca
+
+**Attendees (online)**: Qasimi, Kennedy
+
+**Scribed by**: Derek
+
+- Whiteboard review of dissertation
+- Translate pseudocode into Java as working base
+
 # 2025-04-10
 **Attendees**: Derek, Luca, Luke, Qasimi, Kennedy
 
