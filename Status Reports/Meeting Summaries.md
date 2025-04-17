@@ -1,6 +1,19 @@
 # Meeting Summaries
 Here you will find notes recapping the key points of each synchronous meeting our group partakes in. They are listed in chronological order with the most recent entry at the top.
 
+# 2025-04-17
+**Attendees**: Derek, Luca, Luke, Qasimi, Kennedy
+
+**Scribed by**: Derek
+
+- Review core algorithm
+- `TreeMatcher`
+    - `deepMatch`: use indexing to only loop child nodes in the forward direction
+- `SymbolTable`
+    - `merge`: every key that tables have in common, report a conflict if their values mismatch
+    - Create new symbol table with every new method/class def?
+    - `mergeInstructorTable`: Change from `void` mutator method to duplicator method
+
 # 2025-04-16
 **Attendees (in person)**: Derek, Luca
 
