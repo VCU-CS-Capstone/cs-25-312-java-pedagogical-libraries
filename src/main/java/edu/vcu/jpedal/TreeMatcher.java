@@ -52,8 +52,7 @@ public class TreeMatcher {
             return output;
         }
 
-        // TODO: How do we actually implement SymbolTable here?
-        output.add(new Match(patternNode, studentNode, new SymbolTable()));
+        output.add(new Match(patternNode, studentNode));
         for(Node patternChild : patternNode.getChildNodes()) {
             List<Match> partialMatches = new ArrayList<>();
             for(Node studentChild : studentNode.getChildNodes()) {
