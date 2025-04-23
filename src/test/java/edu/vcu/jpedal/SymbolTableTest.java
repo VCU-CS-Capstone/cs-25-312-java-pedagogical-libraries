@@ -19,15 +19,15 @@ public class SymbolTableTest {
         instructorSymbolTable = new InstructorSymbolTable();
     }
 
-    /**  Test Adding & Retrieving Symbols */
+    /** Test basic add and get functionality */
     @Test
     public void testAddAndRetrieveSymbol() {
         Symbol symbol = new Symbol(new SimpleName("x"), null, null);
         symbolTable.addSymbol("x", symbol);
-        assertEquals(symbol, symbolTable.getAllSymbols().get("x"));
+        assertEquals(symbol, symbolTable.getSymbol("x"));
     }
 
-    /**  Test Merging Symbol Tables */
+    /** Test merging two symbol tables with no conflict */
     @Test
     public void testMergeSymbolTables() {
         SymbolTable otherTable = new SymbolTable();
@@ -43,7 +43,7 @@ public class SymbolTableTest {
         assertFalse(symbolTable.hasConflict());
     }
 
-    /**  Test Conflict Detection in Merging */
+    /** Test conflict is flagged correctly when merging */
     @Test
     public void testMergeConflictDetection() {
         SymbolTable otherTable = new SymbolTable();
@@ -58,7 +58,7 @@ public class SymbolTableTest {
         assertTrue(symbolTable.hasConflict());
     }
 
-    /**  Test Scoped Symbol Lookup */
+    /** Test if symbol lookup works in local scope */
     @Test
     public void testScopedLookup() {
         scopedSymbolTable.addScope("global");
@@ -68,7 +68,7 @@ public class SymbolTableTest {
         assertEquals(symbol, scopedSymbolTable.lookup("y", "global"));
     }
 
-    /**  Test Hierarchical Symbol Lookup */
+    /** Test if lookup falls back to parent scope */
     @Test
     public void testScopedLookupWithParent() {
         ScopedSymbolTable parentScope = new ScopedSymbolTable();
@@ -80,7 +80,7 @@ public class SymbolTableTest {
         assertEquals(parentSymbol, scopedSymbolTable.lookup("z", "global"));
     }
 
-    /**  Test Instructor-Student Mapping */
+    /** Test mapping and lookup in InstructorSymbolTable */
     @Test
     public void testInstructorToStudentMapping() {
         Symbol studentSymbol = new Symbol(new SimpleName("studentVar"), null, null);
@@ -90,20 +90,20 @@ public class SymbolTableTest {
         assertTrue(instructorSymbolTable.instructorHasStudents("ProfA"));
     }
 
-    /**  Test: Lookup Non-Existent Symbol */
+    /** Test null result when looking up a symbol that doesn't exist */
     @Test
     public void testLookupNonExistentSymbol() {
-        assertNull(symbolTable.getAllSymbols().get("nonExistent"));
+        assertNull(symbolTable.getSymbol("nonExistent"));
     }
 
-    /**  Test: Lookup in Empty Scope */
+    /** Test if lookup in an empty scope returns null */
     @Test
     public void testLookupInEmptyScope() {
         scopedSymbolTable.addScope("emptyScope");
         assertNull(scopedSymbolTable.lookup("unknown", "emptyScope"));
     }
 
-    /**  Test: Merge Multiple Conflicting Keys */
+    /** Test merging when multiple keys may conflict */
     @Test
     public void testMergeMultipleConflictingKeys() {
         SymbolTable otherTable = new SymbolTable();
@@ -115,5 +115,22 @@ public class SymbolTableTest {
 
         assertTrue(symbolTable.hasConflict());
         assertTrue(symbolTable.getAllSymbols().containsKey("y"));
+    }
+
+    /** Test merging instructor tables with conflict */
+    @Test
+    public void testInstructorConflictMerge() {
+        InstructorSymbolTable tableA = new InstructorSymbolTable();
+        InstructorSymbolTable tableB = new InstructorSymbolTable();
+
+        Symbol sym1 = new Symbol(new SimpleName("id"), null, null);
+        Symbol sym2 = new Symbol(new SimpleName("id"), null, null);
+
+        tableA.addStudentSymbol("ProfX", "Student1", sym1);
+        tableB.addStudentSymbol("ProfX", "Student1", sym2);
+
+        tableA.mergeInstructorTable(tableB);
+
+        assertTrue(tableA.hasConflict("ProfX", "Student1"));
     }
 }

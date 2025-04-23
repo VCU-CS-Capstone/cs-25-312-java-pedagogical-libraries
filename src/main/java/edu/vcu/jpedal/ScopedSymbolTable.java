@@ -2,52 +2,61 @@ package edu.vcu.jpedal;
 
 import java.util.HashMap;
 import java.util.Map;
-/*
- * - Added `mergeScope(String scopeName, SymbolTable otherScope)`: Allows merging of symbols from another scope.
- * - Implemented `lookup(String key, String scopeName)`: Searches for a symbol in the given scope, with fallback to parent scope.
- * - Supports hierarchical scope resolution to integrate smoothly with AST matching.
- * - Ensures conflict detection when merging different scopes.
- *
- * These updates improve symbol resolution when handling AST transformations and comparisons.
- */
+
 /**
- * ScopedSymbolTable extends SymbolTable to manage scoped symbol resolution.
- * - Supports nested scopes for better AST-based analysis.
- * - Provides functions to add, retrieve, and check scope existence.
- * - Implements hierarchical lookup and scope merging.
+ * ScopedSymbolTable is like a SymbolTable that supports nested areas (scopes).
+ * For example, variables inside a method should only be accessible inside that method.
+ * This class helps organize that logic using named scopes.
  */
 public class ScopedSymbolTable extends SymbolTable {
+
+    // Stores a map of scope name (like function) to its symbol table
     private final Map<String, SymbolTable> scopes;
+
+    // This lets us go up one level to the parent (outer) scope if needed
     private final ScopedSymbolTable parentScope;
 
+    // Root-level scope constructor (no parent)
     public ScopedSymbolTable() {
         super();
         scopes = new HashMap<>();
-        this.parentScope = null; // Root scope has no parent
+        this.parentScope = null;
     }
 
+    // Constructor used when there’s a parent scope (nested block)
     public ScopedSymbolTable(ScopedSymbolTable parentScope) {
         super();
         scopes = new HashMap<>();
         this.parentScope = parentScope;
     }
 
+    /**
+     * Creates a new scope with a given name.
+     * For example, a method scope or a class scope.
+     */
     public void addScope(String scopeName) {
         scopes.put(scopeName, new SymbolTable());
     }
 
+    /**
+     * Get the symbol table for a specific scope.
+     * Returns null if that scope doesn't exist.
+     */
     public SymbolTable getScope(String scopeName) {
         return scopes.get(scopeName);
     }
 
+    /**
+     * Checks whether a scope already exists by name.
+     */
     public boolean scopeExists(String scopeName) {
         return scopes.containsKey(scopeName);
     }
 
     /**
-     * Merges symbols from another scope into this scope.
-     * @param scopeName The name of the scope being merged.
-     * @param otherScope The other scope to merge into this one.
+     * This merges another symbol table into the given scope.
+     * If the scope exists, it merges the entries into it.
+     * If the scope doesn't exist, it just adds the new one.
      */
     public void mergeScope(String scopeName, SymbolTable otherScope) {
         if (scopes.containsKey(scopeName)) {
@@ -58,13 +67,11 @@ public class ScopedSymbolTable extends SymbolTable {
     }
 
     /**
-     * Look up a symbol within a specific scope, with fallback to parent scope.
-     * @param key The symbol name.
-     * @param scopeName The scope name to search in.
-     * @return The Symbol if found, or null if not found in any scope.
+     * Look for a symbol in a specific scope. If it's not there, fall back to the current/global scope,
+     * and if still not found, ask the parent (outer) scope.
      */
     public Symbol lookup(String key, String scopeName) {
-
+        // 1. Check the requested scope first
         if (scopes.containsKey(scopeName)) {
             Symbol symbol = scopes.get(scopeName).getAllSymbols().get(key);
             if (symbol != null) {
@@ -72,17 +79,18 @@ public class ScopedSymbolTable extends SymbolTable {
             }
         }
 
-
+        // 2. If not found, check this level's main table
         Symbol symbol = getAllSymbols().get(key);
         if (symbol != null) {
             return symbol;
         }
 
-
+        // 3. Finally, try looking in the parent scope (if any)
         if (parentScope != null) {
             return parentScope.lookup(key, scopeName);
         }
 
+        // 4. Symbol not found anywhere
         return null;
     }
 }

@@ -2,111 +2,88 @@ package edu.vcu.jpedal;
 
 import java.util.HashMap;
 import java.util.Map;
+
 import com.github.javaparser.ast.expr.Expression;
 import com.github.javaparser.ast.expr.SimpleName;
 import com.github.javaparser.ast.type.Type;
 
-/*
- * - Added `merge(SymbolTable otherTable)`: Allows merging of two symbol tables while tracking conflicts.
- * - Added `getAllSymbols()`: Provides a copy of all stored symbols for better tracking and debugging.
- * - Added `getSymbol(String key)`: Retrieves a symbol from the table, resolving errors in ScopedSymbolTable.
- * - Ensured conflict detection: If a key already exists during merging, the conflict flag is set to `true`.
- * - Preserved all existing functionality while improving robustness.
- *
- * These updates support better symbol tracking and integration with ScopedSymbolTable and InstructorSymbolTable.
- */
-
 /**
- * Holds all possible mappings of pattern nodes to source nodes.
+ * SymbolTable is where we store all symbols like variable names,
+ * along with their data type and expression value.
+ *
+ * This is used during AST matching to compare instructor vs student code.
  */
 public class SymbolTable {
+
+    // Stores all the symbols, each linked to a name (string key)
     private final Map<String, Symbol> symbolTable;
+
+    // Tells us if there was a conflict when merging two tables
     private boolean conflict;
 
-    /**
-     * Constructs a new symbol table
-     */
+    // Constructor to start with an empty table
     public SymbolTable() {
         this.symbolTable = new HashMap<>();
         this.conflict = false;
     }
 
-    /**
-     * Gets the conflict status
-     * @return true if the table has a conflict
-     */
-    public boolean hasConflict() {
-        return conflict;
-    }
-
-    /**
-     * Adds the symbol to the table with the key
-     * @param key the key for which the symbol is to be added
-     * @param value the symbol to be added
-     */
+    // Adds a new symbol into the table
     public void addSymbol(String key, Symbol value) {
         symbolTable.put(key, value);
     }
 
-    /**
-     * Retrieves a symbol by key from the symbol table.
-     * @param key The key of the symbol.
-     * @return The corresponding Symbol, or null if not found.
-     */
+    // Checks whether any merge caused a conflict
+    public boolean hasConflict() {
+        return conflict;
+    }
+
+    // Gets a full Symbol object by its key (name)
     public Symbol getSymbol(String key) {
         return symbolTable.getOrDefault(key, null);
     }
 
-    /**
-     * Gets the data type of the symbol
-     * @param key the key of the symbol
-     * @return the data type of the corresponding symbol
-     */
-    public Type getSymbolDataType(String key) {
-        Symbol symbol = symbolTable.get(key);
-        return (symbol != null) ? symbol.getDataType() : null;
-    }
-
-    /**
-     * Gets the name of the symbol
-     * @param key the key of the symbol
-     * @return the name of the corresponding symbol
-     */
+    // Gets only the name of a symbol (used in matching)
     public SimpleName getSymbolName(String key) {
-        Symbol symbol = symbolTable.get(key);
+        Symbol symbol = getSymbol(key);
         return (symbol != null) ? symbol.getName() : null;
     }
 
-    /**
-     * Gets the expression of the symbol
-     * @param key the key of the symbol
-     * @return the expression of the corresponding symbol
-     */
+    // Gets only the data type (like int, String, etc.)
+    public Type getSymbolDataType(String key) {
+        Symbol symbol = getSymbol(key);
+        return (symbol != null) ? symbol.getDataType() : null;
+    }
+
+    // Gets the actual expression (value or code) stored
     public Expression getSymbolValue(String key) {
-        Symbol symbol = symbolTable.get(key);
+        Symbol symbol = getSymbol(key);
         return (symbol != null) ? symbol.getValue() : null;
     }
 
     /**
-     * Merges another symbol table into this one.
-     * If there are conflicts, it marks the conflict flag but does not overwrite existing values.
-     * @param otherTable The other SymbolTable to merge.
+     * Merges another table into this one.
+     * If there's a key conflict and the symbols are not the same, we set conflict = true.
+     * If the symbol is already present and matches, we skip it.
      */
     public void merge(SymbolTable otherTable) {
         for (Map.Entry<String, Symbol> entry : otherTable.symbolTable.entrySet()) {
-            if (symbolTable.containsKey(entry.getKey())) {
-                conflict = true;  // Mark conflict if the same key exists
+            String key = entry.getKey();
+            Symbol newSymbol = entry.getValue();
+
+            if (symbolTable.containsKey(key)) {
+                Symbol existingSymbol = symbolTable.get(key);
+                if (!existingSymbol.equals(newSymbol)) {
+                    conflict = true; // same name, but different symbol → conflict
+                }
+                // If same symbol, no need to add again
             } else {
-                symbolTable.put(entry.getKey(), entry.getValue());
+                symbolTable.put(key, newSymbol); // safe to add new symbol
             }
         }
     }
 
-    /**
-     * Gets all symbols stored in this table.
-     * @return A copy of the entire symbol table.
-     */
+    // Returns all the symbols stored so far
     public Map<String, Symbol> getAllSymbols() {
-        return new HashMap<>(symbolTable);
+        return new HashMap<>(symbolTable); // copy for safety
     }
 }

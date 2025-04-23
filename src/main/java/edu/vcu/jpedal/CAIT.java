@@ -10,29 +10,19 @@ import com.github.javaparser.StaticJavaParser;
 import com.github.javaparser.ast.CompilationUnit;
 import com.github.javaparser.ast.Node;
 
-/// Capturing AST-Included Trees
-///
-/// Instructor-facing wrapper for internal CAIT methods.
-/// Defers most of its functionality to TreeMatcher.
-/// Also contains methods for converting from source code to AST Nodes.
+/**
+ * Instructor-facing wrapper for internal CAIT methods.
+ * Used for parsing files and matching trees using JavaParser.
+ * Handles source and pattern parsing and delegates comparison to TreeMatcher.
+ */
 public class CAIT {
-    /**
-     * Wrapper for parseSource that passes in a file's contents.
-     * Converts the input String to a Path first.
-     *
-     * @param path String path to the file to be read
-     * @return the resulting JavaParser Node
-     */
+
+    // Parses a file path (as String) into an AST node
     public static Node parseFile(String path) {
         return parseFile(Paths.get(path));
     }
 
-    /**
-     * Wrapper for parseSource that passes in a file's contents.
-     *
-     * @param path Path to the file to be read
-     * @return the resulting JavaParser Node
-     */
+    // Parses a Path object into an AST node
     public static Node parseFile(Path path) {
         String sourceCode;
         try {
@@ -43,104 +33,69 @@ public class CAIT {
         return parseSource(sourceCode);
     }
 
-    /**
-     * Converts a Java file, in String form, into a JavaParser node.
-     *
-     * @param sourceCode code to be parsed
-     * @return the resulting root Node
-     */
+    // Converts raw source code into a JavaParser AST node
     public static Node parseSource(String sourceCode) {
         CompilationUnit parsedTree;
         try {
-            // parses source code into an AST -kw
             parsedTree = StaticJavaParser.parse(sourceCode);
-        }
-        catch(Exception e) {
-            System.out.println("Error when attempting to parse source: " + e.getMessage());
+        } catch (Exception e) {
+            System.out.println("Error when parsing source: " + e.getMessage());
             return null;
         }
-        // CompilationUnit is a subclass of Node so we don't actually need to reach into its root -dc
         return parsedTree;
     }
 
-    /**
-     * @see CAIT#parsePattern(String, String)
-     */
+    // Simple version that calls the detailed one below with a default class name
     public static Node parsePattern(String codePattern) {
         return parsePattern(codePattern, "CodeSnippet");
     }
 
     /**
-     * Takes the code snippet and transforms it into a compilable source file before passing it into parseSource.
-     * @param codePattern any code pattern, not including its main function
-     * @param moduleName name of the generated public class, defaults to CodeSnippet
-     * @return the AST node generated from wrapping the snippet in a Java class
+     * Takes a code pattern and wraps it inside a fake class so JavaParser can understand it.
+     * Useful when you're passing in just a snippet of code and not full classes.
      */
     public static Node parsePattern(String codePattern, String moduleName) {
-        CompilationUnit parsedTree;
-        String wrappedSource = "public class %s { public static void main(String[] args) { %s } }".formatted(moduleName, codePattern);
+        String wrappedSource = String.format(
+                "public class %s { public static void main(String[] args) { %s } }",
+                moduleName, codePattern
+        );
         return parseSource(wrappedSource);
     }
 
     /**
-     * Recursively compares two nodes, checking if they are equal.
-     * TODO: delegate to TreeMatcher?
-     *
-     * @param node1 root of the first tree to be checked
-     * @param node2 root of the second tree to be checked
-     * @return whether the two trees are structurally equivalent
+     * Checks whether two trees look exactly the same.
+     * Can be used to test similarity without needing a matcher.
      */
     public static boolean nodesAreEqual(Node node1, Node node2) {
-        List<Node> childrenNode1 = node1.getChildNodes();
-        List<Node> childrenNode2 = node2.getChildNodes();
+        List<Node> children1 = node1.getChildNodes();
+        List<Node> children2 = node2.getChildNodes();
 
-        // if the nodes do not have the same amount of children, they are not equal -ld
-        if (childrenNode1.size() != childrenNode2.size())
-            return false;
+        if (children1.size() != children2.size()) return false;
 
-        // iterate through each child, return false if at any point the nodes are not equal -ld
-        for (int i = 0; i < childrenNode1.size(); ++i) {
-            if (!nodesAreEqual(childrenNode1.get(i), childrenNode2.get(i))) {
+        for (int i = 0; i < children1.size(); i++) {
+            if (!nodesAreEqual(children1.get(i), children2.get(i))) {
                 return false;
             }
         }
-
-        // no differences found
         return true;
     }
 
-    /**
-     * Wrapper for findMatches that returns the first match found.
-     *
-     * @param pattern instructor-provided AST pattern to check for
-     * @param studentCode entire student source code in one string
-     * @return the first match found by calling findMatches, or null if there are none
-     */
+    // Returns the first match it finds (or null if no match)
     public static Match findMatch(String pattern, String studentCode) {
         List<Match> matches = findMatches(pattern, studentCode);
-        if(matches.isEmpty()) {
-            return null;
-        }
-        // changed from matches.getFirst() to matches.get(0)
-        // as List.getFirst() is not available pre 21 -ld
-        return matches.get(0);
+        return (matches != null && !matches.isEmpty()) ? matches.get(0) : null;
     }
 
     /**
-     * Returns all matches of a given pattern against a student source code file.
-     *
-     * @param pattern instructor-provided AST pattern to check for
-     * @param studentCode entire student source code in one string
-     * @return a List of all Matches found (may be empty)
+     * Converts both pattern and student code to AST and returns all valid matches.
+     * Delegates actual tree matching to TreeMatcher class.
      */
     public static List<Match> findMatches(String pattern, String studentCode) {
-        // conversion into AST happens here
-        Node patternAST=parseSource(pattern);
-        Node studentAST=parseSource(studentCode);
+        Node patternAST = parseSource(pattern);
+        Node studentAST = parseSource(studentCode);
 
-        //checking to see if the parsing failed
-        if(patternAST==null || studentAST==null){
-            System.out.println("Error parsing the pattern or student code.");
+        if (patternAST == null || studentAST == null) {
+            System.out.println("Error parsing pattern or student code.");
             return null;
         }
 
