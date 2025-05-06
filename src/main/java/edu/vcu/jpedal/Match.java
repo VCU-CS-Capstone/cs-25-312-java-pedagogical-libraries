@@ -2,37 +2,37 @@ package edu.vcu.jpedal;
 
 import com.github.javaparser.ast.Node;
 
-/// Represents one possible mapping of the pattern node to the source node.
+import java.util.HashMap;
+import java.util.Map;
+
+/**
+ * Holds a mapping of pattern nodes to student nodes.
+ */
 public class Match {
-    private Node patternNode;
-    private Node studentNode;
+    private Map<Node, Node> mappings;
     private SymbolTable symbolTable;
 
     /**
      * Constructs a Match object
-     * @param patternNode
-     * @param studentNode
-     * @param symbolTable
+     * @param patternNode Initial pattern node
+     * @param studentNode Initial student node
      */
-    public Match(Node patternNode, Node studentNode, SymbolTable symbolTable) {
-        this.patternNode = patternNode;
-        this.studentNode = studentNode;
-        this.symbolTable = symbolTable;
+    public Match(Node patternNode, Node studentNode) {
+        mappings = new HashMap<>();
+        addMapping(patternNode, studentNode);
     }
 
-    /**
-     * Returns the symbol table
-     * @return the symbol table
-     */
+    public void addMapping(Node patternNode, Node studentNode) {
+        mappings.put(patternNode, studentNode);
+        // TODO: handle symbol table
+    }
+
+    public boolean isCompatibleWith(Match other) {
+        // TODO: implement
+        return false;
+    }
+
     public SymbolTable getSymbolTable() {
         return symbolTable;
-    }
-
-    /**
-     * Sets the symbol table
-     * @param symbolTable
-     */
-    public void setSymbolTable(SymbolTable symbolTable) {
-        this.symbolTable = symbolTable;
     }
 }

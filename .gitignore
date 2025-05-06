@@ -138,3 +138,6 @@ local.properties
 .settings/
 .loadpath
 .recommenders
+
+# Mac-specific folder
+.DS_Store
