@@ -1,67 +1,59 @@
-# **Project Setup Guide – IntelliJ \+ Gradle**
+# Project Setup Guide – IntelliJ + Gradle
 
-## **Prerequisites**
+## Prerequisites
 
-\- Java 17+ (JDK installed)  
-\- IntelliJ IDEA (Community or Ultimate)  
-\- Git  
-\- Internet access (for Gradle dependency downloads)
+- Java 17+ (JDK installed
+- IntelliJ IDEA (Community or Ultimate)
+- Git
+- Internet access (for Gradle dependency downloads)
 
-## **1\. Clone the Repository**
+## 1. Clone the Repository
 
 Open your terminal and run:
 
-```
+```sh
 git clone https://github.com/VCU-CS-Capstone/cs-25-312-java-pedagogical-libraries.git
 cd cs-25-312-java-pedagogical-libraries
 ```
 
-## **2\. Open Project in IntelliJ**
+## **2. Open Project in IntelliJ**
 
-\- Open IntelliJ  
-\- Click on File \> Open  
-\- Select the root folder of the cloned repo  
-\- When prompted: "Trust project?" → Yes  
-\- IntelliJ will auto-detect Gradle and load the build
+- Open IntelliJ
+- Click on File > Open
+- Select the root folder of the cloned repo
+- When prompted: "Trust project?" → Yes
+- IntelliJ will auto-detect Gradle and load the build
 
-## **3\. Let Gradle Sync**
+## 3. Let Gradle Sync
 
-\- Wait for IntelliJ to complete "Indexing" and "Gradle sync" in the background.  
-\- Check the bottom status bar to ensure no errors appear.
+- Wait for IntelliJ to complete
+"Indexing" and "Gradle sync" in the background.
+- Check the bottom status bar to ensure no errors appear.
 
-## **4\. Run Unit Tests**
+## 4. Run Unit Tests
 
-Go to the file:
+- Navigate to `src/test/java/edu/vcu/jpedal/SymbolTableTest.java`.
+- Right-click → Run 'SymbolTableTest'
 
-```
-src/test/java/edu/vcu/jpedal/SymbolTableTest.java
-```
-
-Right-click → Run 'SymbolTableTest'
-
-## **5\. Building the Project**
+## 5. Building the Project
 
 To build manually with Gradle:
 
-```
+```sh
 ./gradlew build
 ```
 
 For Windows (PowerShell):
 
-```
+```sh
 .\gradlew.bat build
 ```
 
 ## **Optional: Run the CAIT Demo**
 
-Inside:
-
-```
-src/main/java/edu/vcu/jpedal/CAITDemo.java
-```
-
-Run this to try a sample AST pattern matching test between instructor and student code snippets.
+Run `src/main/java/edu/vcu/jpedal/CAITDemo.java`
+to try a sample AST pattern matching test
+between instructor and student code snippets.
 
 ## **Directory Overview**
 
