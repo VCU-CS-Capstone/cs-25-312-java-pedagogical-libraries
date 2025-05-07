@@ -1,31 +1,41 @@
 # unit testing
+
 Testing **units** of a code
 A unit can be a **method**, **class**, or **module**
-# integration testing
+
+## integration testing
+
 Testing how units fit together
-# assertions
+
+## assertions
+
 - testing that outputs look right
 
-# coverage
+## coverage
+
 - what % of the code is being tested?
 - can be different metrics:
-	- classes
-	- lines
-	- methods
-	- branches
+  - classes
+  - lines
+  - methods
+  - branches
 IntelliJ has "Run [module] with Coverage" tool
 
-## line coverage
+### line coverage
+
 - go for 100% line coverage at minimum, then go for other metrics
 
-## branch coverage
+### branch coverage
+
 Consider this code:
-```
+
+```txt
 if condition1:
-	do something
+  do something
 if condition2:
-	do something
+  do something
 ```
+
 To test every **branch** of the following code, you could use two tests:
 condition1 = true, condition2 = true
 condition1 = false, condition2 = false
@@ -36,36 +46,52 @@ condition1 = true, condition2 = false
 condition1 = false, condition1 = true
 
 Consider this code:
-```
+
+```txt
 if condition1 && condition2:
-	do something
+  do something
 else:
-	do something else
+  do something else
 ```
-**Especially** where short-circuiting is supported, **both** condition1 and condition2 individually being false are considered separate branches
-## proliferation control
-### priority-based
+
+**Especially** where short-circuiting is supported,
+**both** condition1 and condition2 individually being false
+are considered separate branches
+
+### proliferation control
+
+#### priority-based
+
 - prioritize code that runs more often (test it more)
 - typically used in industry for stress-testing
-### boundary-based
+
+#### boundary-based
+
 - go straight for the edge-cases, as those are most likely to cause issues
 - typically used in academic settings, simple and covers what you need
 - also typically used in industry
-```
+
+```txt
 if grade > 90:
-	print A
+  print A
 elif grade > 80:
-	print B
+  print B
 ```
+
 You'd test 91, 90, and 89, and 81, 80, and 79.
-## equivalence-based
-- group paths together that tend to cause the same issues, then have one test speak for them all
-```
+
+### equivalence-based
+
+- group paths together that tend to cause the same issues,
+then have one test speak for them all
+
+```py
 if error type1:
-	doSomething(...)
+  doSomething(...)
 elif error type2:
-	doSomething(...)
+  doSomething(...)
 else:
-	do the cool thing
+  do the cool thing
 ```
+
 If we think of error type1 and error type2 as the same class of error, then we could group them together and test the group
