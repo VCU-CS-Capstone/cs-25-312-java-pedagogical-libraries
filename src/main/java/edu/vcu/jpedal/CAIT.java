@@ -91,8 +91,9 @@ public class CAIT {
      * Delegates actual tree matching to TreeMatcher class.
      */
     public static List<Match> findMatches(String pattern, String studentCode) {
-        Node patternAST = parseSource(pattern);
-        Node studentAST = parseSource(studentCode);
+        // conversion into AST happens here
+        Node patternAST=parsePattern(pattern);
+        Node studentAST=parseSource(studentCode);
 
         if (patternAST == null || studentAST == null) {
             System.out.println("Error parsing pattern or student code.");

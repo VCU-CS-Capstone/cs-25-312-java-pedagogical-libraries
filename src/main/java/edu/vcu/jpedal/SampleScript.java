@@ -7,24 +7,8 @@ import com.github.javaparser.ast.Node;
 /// In that case, we can use this script as a usage example.
 public class SampleScript {
     public static void main(String[] args) {
-        Node parsed = CAIT.parseSource(
-                "public class SuperAwesome { public static void main(String[] args) { int x = 3; } }");
-        assert parsed != null;
-        System.out.println(parsed);
-
-        final String PATH_TO_SAMPLES = "src/test/resources/";
-
-        Node correctNode = CAIT.parseFile(PATH_TO_SAMPLES + "CorrectMath.java");
-        assert correctNode != null;
-        Node renamedCorrectNode = CAIT.parseFile(PATH_TO_SAMPLES + "RenamedCorrectMath.java");
-        assert renamedCorrectNode != null;
-        Node wackyNode = CAIT.parseFile(PATH_TO_SAMPLES + "WackyMath.java");
-        assert wackyNode != null;
-        // This should report EQUAL once nodesAreEqual is complete -dc
-        System.out.println("correct and renamedCorrect are: " + (CAIT.nodesAreEqual(correctNode, renamedCorrectNode) ? "EQUAL" : "NOT EQUAL"));
-        // This should report NOT EQUAL once nodesAreEqual is complete -dc
-        System.out.println("correct and wacky are: " + (CAIT.nodesAreEqual(correctNode, wackyNode) ? "EQUAL" : "NOT EQUAL"));
-        // This should report EQUAL once nodesAreEqual is complete - ld
-        System.out.println("correct and correct are: " + (CAIT.nodesAreEqual(correctNode, correctNode) ? "EQUAL" : "NOT EQUAL"));
+        String pattern = "int _thingy_ = 3;";
+        String code = "public class SuperAwesome { public static void main(String[] args) { int x = 3; } }";
+        System.out.println(CAIT.findMatches("int _thingy_ = 3;", code));
     }
 }
