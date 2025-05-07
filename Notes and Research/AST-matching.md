@@ -2,36 +2,38 @@
 
 - Student has a `.java` file, which gets parsed into AST format
 - Instructor has a pattern in String format, which gets parsed into AST format
-- End goal: Look for instances of the **instructor pattern** in the student **source code**
+- End goal: Look for instances of the **instructor pattern**
+in the student **source code**
 
-# Patterns
+## Patterns
 
 - `_identifier_` - single symbol, save (analogous to capture groups in regex)
 - `__subtree__` - any subtree, save
 - `___` - any subtree, don't save
 
-## Example instructor pattern
+### Example instructor pattern
 
 ```java
 public void readGroceryList(String[] _groceries_) {
-	for(String _item_ : _groceries_) {
-		System.out.println(_item_);
-	}
+  for(String _item_ : _groceries_) {
+    System.out.println(_item_);
+  }
 }
 ```
 
-# Shallow matching
+## Shallow matching
 
 - Are two nodes equivalent?
-	- Look for particular attributes (variable as load **or** variable as store), independent of name
-	- Don't care about the nodes' children
+  - Look for particular attributes (variable as load **or** variable as store),
+  independent of name
+  - Don't care about the nodes' children
 
-# Deep matching
+## Deep matching
 
 - Are two nodes equivalent, all the way down?
-	- Check children recursively
+  - Check children recursively
 
-## Horizontal stretching
+### Horizontal stretching
 
 Relax the equality conditions a bit:
 
@@ -51,7 +53,7 @@ value: binop (*)
 |-- right: variable A
 ```
 
-2. Irrelevant nodes can be skipped over
+1. Irrelevant nodes can be skipped over
 
 This instructor pattern:
 ```
@@ -59,7 +61,7 @@ body[0] (foreach)
 |-- target: ___
 |-- iter: ___
 |-- body (assignment)
-	|-- (etc.)
+  |-- (etc.)
 ```
 
 Could match this student code:
@@ -70,12 +72,14 @@ body[2] (foreach)
 |-- target: steps_hiked
 |-- iter: steps_hiked_list
 |-- body (assignment)
-	|-- (etc.)
+  |-- (etc.)
 ```
-The `body[0]` and `body[1]` nodes can be ignored when searching, as the instructor pattern doesn't have mappings for them.
+The `body[0]` and `body[1]` nodes can be ignored when searching,
+as the instructor pattern doesn't have mappings for them.
 
-# Symbol tables
+## Symbol tables
 
 - A `Map` of instructor identifiers to student identifiers
 - At the bottom levels of the tree, create entries for all possible mappings
-- Recurring up the tree, merge all possible combinations of symbol tables that **don't** produce conflicts
+- Recurring up the tree,
+merge all possible combinations of symbol tables that **don't** produce conflicts
