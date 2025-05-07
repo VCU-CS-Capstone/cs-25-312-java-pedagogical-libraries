@@ -4,25 +4,37 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * InstructorSymbolTable keeps track of symbol mappings between instructor and student AST nodes.
- * It allows lookup, merging, and conflict detection between mappings.
+ * InstructorSymbolTable manages mappings between instructor-defined identifiers
+ * and the corresponding student-submitted symbols.
+ *
+ * <p>This class supports adding symbols, retrieving them,
+ * merging symbol mappings from another table, and detecting conflicts
+ * when different symbols are mapped to the same key.</p>
  */
 public class InstructorSymbolTable {
-    // This map links each instructor to their student-symbol mappings
+
+    // Keeps instructor -> (studentKey -> Symbol) mappings
     private final Map<String, Map<String, Symbol>> instructorToStudentMapping;
 
-    // Keeps track of conflicts when merging tables (like duplicate keys with different symbols)
+    // Tracks conflicts: same student key mapped to different symbols
     private final Map<String, Boolean> conflictMap;
 
-    // Constructor: initialize both maps
+    /**
+     * Constructs an empty InstructorSymbolTable.
+     * Initializes the internal maps used for storage and conflict tracking.
+     */
     public InstructorSymbolTable() {
         instructorToStudentMapping = new HashMap<>();
         conflictMap = new HashMap<>();
     }
 
     /**
-     * Adds a new student symbol under an instructor.
-     * If the instructor doesn't exist, creates the mapping.
+     * Adds a student symbol under a specific instructor.
+     * Creates a new map for the instructor if not already present.
+     *
+     * @param instructorKey the unique identifier for the instructor
+     * @param studentKey    the identifier submitted by the student
+     * @param studentSymbol the symbol object representing the student submission
      */
     public void addStudentSymbol(String instructorKey, String studentKey, Symbol studentSymbol) {
         instructorToStudentMapping
@@ -31,8 +43,11 @@ public class InstructorSymbolTable {
     }
 
     /**
-     * Returns the student symbol if it exists, otherwise null.
-     * Used for checking what a student submitted under an instructor's pattern.
+     * Retrieves a student’s symbol for a specific instructor.
+     *
+     * @param instructorKey the instructor's identifier
+     * @param studentKey    the student identifier
+     * @return the associated Symbol or null if not found
      */
     public Symbol getStudentSymbol(String instructorKey, String studentKey) {
         if (!instructorToStudentMapping.containsKey(instructorKey)) return null;
@@ -40,29 +55,37 @@ public class InstructorSymbolTable {
     }
 
     /**
-     * Just a shortcut that behaves the same as getStudentSymbol().
-     * Helps during testing or TreeMatcher usage.
+     * Alias method for getStudentSymbol — helpful for clarity during AST matching.
+     *
+     * @param instructorKey the instructor’s key
+     * @param studentKey    the student’s key
+     * @return the matching symbol if it exists, else null
      */
     public Symbol lookupStudentSymbol(String instructorKey, String studentKey) {
         return getStudentSymbol(instructorKey, studentKey);
     }
 
     /**
-     * Checks if the instructor has at least one student mapped.
+     * Checks if an instructor has any mapped student symbols.
+     *
+     * @param instructorKey the instructor’s key
+     * @return true if mappings exist, otherwise false
      */
     public boolean instructorHasStudents(String instructorKey) {
         return instructorToStudentMapping.containsKey(instructorKey);
     }
 
     /**
-     * Combines another InstructorSymbolTable into this one.
-     * If both tables have the same student key but different symbols, we flag it as a conflict.
-     * Also skips merge if conflict occurs. Safe merge only.
+     * Merges another InstructorSymbolTable into the current one.
+     * If both tables map the same student key to different symbols, a conflict is logged.
+     *
+     * @param otherTable another InstructorSymbolTable to merge
      */
     public void mergeInstructorTable(InstructorSymbolTable otherTable) {
         for (String instructorKey : otherTable.instructorToStudentMapping.keySet()) {
             Map<String, Symbol> theirStudentMap = otherTable.instructorToStudentMapping.get(instructorKey);
-            Map<String, Symbol> ourStudentMap = instructorToStudentMapping.computeIfAbsent(instructorKey, k -> new HashMap<>());
+            Map<String, Symbol> ourStudentMap = instructorToStudentMapping
+                    .computeIfAbsent(instructorKey, k -> new HashMap<>());
 
             for (Map.Entry<String, Symbol> entry : theirStudentMap.entrySet()) {
                 String studentKey = entry.getKey();
@@ -74,17 +97,21 @@ public class InstructorSymbolTable {
                 } else {
                     Symbol existingSymbol = ourStudentMap.get(studentKey);
                     if (!existingSymbol.equals(newSymbol)) {
-                        // Conflict: same key, different symbol
+                        // Conflict detected: different symbol already present
                         conflictMap.put(instructorKey + "_" + studentKey, true);
                     }
-                    // If same symbol, do nothing — already mapped correctly
+                    // If they match, do nothing — no update needed
                 }
             }
         }
     }
 
     /**
-     * Returns true if a conflict was flagged during merging.
+     * Checks if there was a conflict during merge for a specific instructor-student key.
+     *
+     * @param instructorKey the instructor’s key
+     * @param studentKey    the student’s key
+     * @return true if a conflict exists, false otherwise
      */
     public boolean hasConflict(String instructorKey, String studentKey) {
         return conflictMap.getOrDefault(instructorKey + "_" + studentKey, false);
